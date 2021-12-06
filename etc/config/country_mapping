@@ -1,0 +1,165 @@
+config mapping AE
+	option CountryCode 'SG'
+	option timezone '<+04>-4'
+config mapping AU
+	option CountryCode 'SG'
+	option timezone 'AEST-10AEDT,M10.1.0,M4.1.0/3'
+config mapping BE
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping BR
+	option CountryCode 'US'
+	option timezone '<-03>3'
+config mapping CH
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping CL
+	option CountryCode 'US'
+	option timezone '<-04>4<-03>,M9.1.6/24,M4.1.6/24'
+config mapping DE
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping DK
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping EG
+	option CountryCode 'SG'
+	option timezone 'EET-2'
+config mapping ES
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping FI
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping FR
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping ID
+	option CountryCode 'SG'
+	option timezone 'WIB-7'
+config mapping IE
+	option CountryCode 'EU'
+	option timezone 'IST-1GMT0,M10.5.0,M3.5.0/1'
+config mapping IL
+	option CountryCode 'SG'
+	option timezone 'IST-2IDT,M3.4.5,M10.5.0'
+config mapping IT
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping MA
+	option CountryCode 'SG'
+	option timezone '<+01>-1'
+config mapping MY
+	option CountryCode 'SG'
+	option timezone '<+08>-8'
+config mapping NG
+	option CountryCode 'SG'
+	option timezone 'CET-1'
+config mapping NL
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping NO
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping PE
+	option CountryCode 'US'
+	option timezone '<-05>5'
+config mapping PL
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping RU
+	option CountryCode 'RU'
+	option timezone 'MSK-3'
+config mapping SE
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping SG
+	option CountryCode 'SG'
+	option timezone '<+08>-8'
+config mapping TH
+	option CountryCode 'SG'
+	option timezone '<+07>-7'
+config mapping TR
+	option CountryCode 'SG'
+	option timezone 'EAT-3'
+config mapping UA
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping VN
+	option CountryCode 'SG'
+	option timezone '<+07>-7'
+config mapping GB
+	option CountryCode 'EU'
+	option timezone 'GMT0BST,M3.5.0/1,M10.5.0'
+config mapping NZ
+	option CountryCode 'SG'
+	option timezone 'NZST-12NZDT,M9.5.0,M4.1.0/3'
+config mapping KR
+	option CountryCode 'SG'
+	option timezone 'KST-9'
+config mapping PT
+	option CountryCode 'EU'
+	option timezone 'WET0WEST,M3.5.0/1,M10.5.0'
+config mapping KE
+	option CountryCode 'SG'
+	option timezone 'EAT-3'	
+config mapping CN
+	option CountryCode 'CN'
+	option timezone 'CST-8'
+config mapping HK
+	option CountryCode 'CN'
+	option timezone 'HKT-8'
+config mapping TW
+	option CountryCode 'CN'
+	option timezone 'CST-8'
+config mapping IN
+	option CountryCode 'IN'
+	option timezone 'IST-5:30'
+config mapping BG
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping CO
+	option CountryCode 'US'
+	option timezone '<-05>5'
+config mapping CZ
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping EE
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping GR
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping HR
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping HU
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping JO
+	option CountryCode 'SG'
+	option timezone 'EET-2EEST,M3.5.4/24,M10.5.5/1'
+config mapping KH
+	option CountryCode 'SG'
+	option timezone '<+07>-7'
+config mapping LT
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping LV
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping MT
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping MX
+	option CountryCode 'US'
+	option timezone 'CST6CDT,M4.1.0,M10.5.0'
+config mapping RO
+	option CountryCode 'EU'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+config mapping SK
+	option CountryCode 'EU'
+	option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+config mapping LA
+	option CountryCode 'SG'
+	option timezone '<+07>-7'
