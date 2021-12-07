@@ -46,7 +46,7 @@ chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 # replace www from global
 cp -rf www/* "$FSDIR/www/"
 
-# copy the latest firmware of wifi
+# copy the latest firmware 
 cp -R etc/* "$FSDIR/etc/"
 
 # copy the latest firmware of wifi
