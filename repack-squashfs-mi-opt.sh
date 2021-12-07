@@ -31,6 +31,10 @@ unsquashfs -f -d "$FSDIR" "$IMG"
 
 >&2 echo "patching squashfs..."
 
+# create /opt dir
+mkdir -p "$FSDIR/opt"
+chmod 755 "$FSDIR/opt"
+
 # add global firmware language packages
 cp -R ./language-packages/opkg-info/. $FSDIR/usr/lib/opkg/"info"
 cp -R ./uci-defaults/. $FSDIR/etc/uci-defaults
@@ -39,52 +43,24 @@ cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
 chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 
-# translate xiaomi stuff to Spanish
-sed -i 's/连接设备数量/"Appareils connecté"/g' "$FSDIR/usr/lib/lua/luci/view/web/index.htm"
-sed -i 's/连接设备数量/"Appareils connecté"/g' "$FSDIR/usr/lib/lua/luci/view/web/apindex.htm"
+# replace www from global
+cp -rf www/* "$FSDIR/www/"
 
-sed -i 's/Wi-Fi名称/"Nom du Wi-Fi"/g' "$FSDIR/usr/lib/lua/luci/view/web/index.htm"
-sed -i 's/Wi-Fi名称/"Nom du Wi-Fi"/g' "$FSDIR/usr/lib/lua/luci/view/web/apindex.htm"
+# copy the latest firmware 
+cp -R etc/* "$FSDIR/etc/"
 
-sed -i 's/Wi-Fi密码/"Mot de passe"/g' "$FSDIR/usr/lib/lua/luci/view/web/apindex.htm"
-sed -i 's/Wi-Fi密码/"Mot de passe"/g' "$FSDIR/usr/lib/lua/luci/view/web/index.htm"
+# copy the latest firmware of wifi
+cp -R lib/* "$FSDIR/lib/"
 
-sed -i 's/>设置/">Paramètres"/g' "$FSDIR/usr/lib/lua/luci/view/web/index.htm"
-sed -i 's/>设置/">Paramètres"/g' "$FSDIR/usr/lib/lua/luci/view/web/apindex.htm"
+# replace luci from international firmware
+cp -R lua/* "$FSDIR/usr/lib/lua/"
 
-sed -i 's/小米AIoT路由器 AX3600/"Router AIoT Mi AX3600"/g' "$FSDIR/usr/lib/lua/luci/view/web/index.htm"
-sed -i 's/小米AIoT路由器 AX3600/"Router AIoT Mi AX3600"/g' "$FSDIR/usr/lib/lua/luci/view/web/apindex.htm"
-
-sed -i 's/开启后，2.4G和5G将合并显示为同一个名称，路由器将优先为终端选择5G网络。合并名称后部分终端可能离线，需重新连接。/"Une fois allumé, la 2.4G et la 5G seront combinées et affichées sous le même nom, et le routeur donnera la priorité au terminal pour sélectionner le réseau 5G. Après avoir fusionné les noms, certains terminaux peuvent être hors ligne et doivent être reconnectés."/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/开启后，2.4G和5G将合并显示为同一个名称，路由器将优先为终端选择5G网络。合并名称后部分终端可能离线，需重新连接。/"Une fois allumé, la 2.4G et la 5G seront combinées et affichées sous le même nom, et le routeur donnera la priorité au terminal pour sélectionner le réseau 5G. Après avoir fusionné les noms, certains terminaux peuvent être hors ligne et doivent être reconnectés."/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/Wi-Fi 5 兼容模式/"Mode compatible Wifi 5 (802.11ac)"/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/Wi-Fi 5 兼容模式/"Mode compatible Wifi 5 (802.11ac)"/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/某些老设备对Wi-Fi6支持不好，可能扫描不到信号或者连接不上等。开启此开关后，将会切换到Wi-Fi5模式，解决兼容问题。但同时会关闭Wi-Fi6的相关功能，如OFDMA，BSS Coloring等。/"Certains appareils plus anciens ne prennent pas en charge le Wi-Fi 6 et peuvent présenter des problèmes de compatibilité tels que des erreurs de numérisation ou de connexion Wi-Fi. Une fois ce commutateur activé, le routeur fonctionnera en mode compatible Wi-Fi 5 pour résoudre les problèmes de compatibilité. Il désactivera également les fonctions liées au Wi-Fi 6 telles que les couleurs OFDMA, BSS, etc.."/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/某些老设备对Wi-Fi6支持不好，可能扫描不到信号或者连接不上等。开启此开关后，将会切换到Wi-Fi5模式，解决兼容问题。但同时会关闭Wi-Fi6的相关功能，如OFDMA，BSS Coloring等。/"Certains appareils plus anciens ne prennent pas en charge le Wi-Fi 6 et peuvent présenter des problèmes de compatibilité tels que des erreurs de numérisation ou de connexion Wi-Fi. Une fois ce commutateur activé, le routeur fonctionnera en mode compatible Wi-Fi 5 pour résoudre les problèmes de compatibilité. Il désactivera également les fonctions liées au Wi-Fi 6 telles que les couleurs OFDMA, BSS, etc.."/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/:畅快连/":Connexion rapide"/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/:畅快连/":Connexion rapide"/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/AIoT智能天线自动扫描功能可以自动发现未初始化的小米智能设备，通过米家APP快速入网。/"La vérification automatique intelligente AIoT peut systématiquement découvrir les appareils intelligents Mi qui nont pas été initialisés et les connecter rapidement par le biais de Mi Home."/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/AIoT智能天线自动扫描功能可以自动发现未初始化的小米智能设备，通过米家APP快速入网。/"La vérification automatique intelligente AIoT peut systématiquement découvrir les appareils intelligents Mi qui nont pas été initialisés et les connecter rapidement par le biais de Mi Home."/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/此功能可能在网络拥塞的环境下导致网络出现一定的丢包变多及延时提高的问题。/"Cette fonction peut entraîner une certaine perte de paquets et un retard accru dans le réseau dans un environnement réseau encombré."/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/此功能可能在网络拥塞的环境下导致网络出现一定的丢包变多及延时提高的问题。/"Cette fonction peut entraîner une certaine perte de paquets et un retard accru dans le réseau dans un environnement réseau encombré."/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
-
-sed -i 's/时区设置/"Réglage du fuseau horaire"/g' "$FSDIR/usr/lib/lua/luci/view/web/inc/sysinfo_ap.htm"
-sed -i 's/时区设置/"Réglage du fuseau horaire"/g' "$FSDIR/usr/lib/lua/luci/view/web/inc/sysinfo.htm"
-
-sed -i 's/开启此功能，路由器可自动发现支持畅快连的未初始化Wi-Fi设备，通过米家APP快速配网；修改路由器密码也将自动同步给支持畅快连的设备。/"Avec cette fonctionnalité activée, le routeur peut détecter automatiquement les appareils Wi-Fi non initialisés qui prennent en charge Smooth Connect et les coupler rapidement avec le réseau via Mi Home; la modification du mot de passe du routeur se synchronisera également automatiquement avec les appareils prenant en charge Smooth Connect."/g' "$FSDIR/usr/lib/lua/luci/view/web/setting/wifi.htm"
-sed -i 's/开启此功能，路由器可自动发现支持畅快连的未初始化Wi-Fi设备，通过米家APP快速配网；修改路由器密码也将自动同步给支持畅快连的设备。/"Avec cette fonctionnalité activée, le routeur peut détecter automatiquement les appareils Wi-Fi non initialisés qui prennent en charge Smooth Connect et les coupler rapidement avec le réseau via Mi Home; la modification du mot de passe du routeur se synchronisera également automatiquement avec les appareils prenant en charge Smooth Connect."/g' "$FSDIR/usr/lib/lua/luci/view/web/apsetting/wifi.htm"
+# replace luci from international firmware
+# cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
 
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
 sed -i 's/flg_ssh=.*/flg_ssh=1/' "$FSDIR/etc/init.d/dropbear"
-
-# mark web footer so that users can confirm the right version has been flashed
-sed -i 's/romVersion%>/& xqrepack-translated/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
 # stop resetting root password
 sed -i '/set_user(/a return 0' "$FSDIR/etc/init.d/system"
@@ -105,6 +81,7 @@ enable_dev_access() {
 	nvram set uart_en=1
 	nvram set ssh_en=1
 	nvram set boot_wait=on
+	nvram set CountryCode=EU
 	nvram commit
 }
 
@@ -115,9 +92,9 @@ NVRAM
 sed -i "s@root:[^:]*@root:${ROOTPW}@" "$FSDIR/etc/shadow"
 
 # stop phone-home in web UI
-cat <<JS >> "$FSDIR/www/js/miwifi-monitor.js"
-(function(){ if (typeof window.MIWIFI_MONITOR !== "undefined") window.MIWIFI_MONITOR.log = function(a,b) {}; })();
-JS
+#cat <<JS >> "$FSDIR/www/js/miwifi-monitor.js"
+#(function(){ if (typeof window.MIWIFI_MONITOR !== "undefined") window.MIWIFI_MONITOR.log = function(a,b) {}; })();
+#JS
 
 # add xqflash tool into firmware for easy upgrades
 cp xqflash "$FSDIR/sbin"
@@ -127,6 +104,7 @@ chown root:root "$FSDIR/sbin/xqflash"
 # dont start crap services
 #for SVC in stat_points statisticsservice \
 #		datacenter \
+#		smartcontroller \
 #		xq_info_sync_mqtt \
 #		xiaoqiang_sync \
 #		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
@@ -139,21 +117,22 @@ chown root:root "$FSDIR/sbin/xqflash"
 #sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
 
 # cron jobs are mostly non-OpenWRT stuff
-for f in $FSDIR/etc/crontabs/*; do
-	sed -i 's/^/#/' $f
-done
+#for f in $FSDIR/etc/crontabs/*; do
+	#sed -i 's/^/#/' $f
+#done
 
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 #sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
-# replace www from global
-cp -rf www/* "$FSDIR/www/"
+# mark web footer so that users can confirm the right version has been flashed
+sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
-# copy the latest firmware of wifi
-cp -R etc/* "$FSDIR/etc/"
-
-# replace luci from international firmware
-cp -R lua/* "$FSDIR/usr/lib/lua/"
+# apply patch from xqrepack repository
+if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
+else
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
+fi
 
 # remove pre-selected DNS option
 export DNS="                    <option value="2"><%:花生壳（oray.com）%></option>"
