@@ -9,7 +9,7 @@ set_timezone_from_countrycode() {
 	cc=`bdata get CountryCode`
 
 	case "$cc" in
-		"EU" )	tz="CET-1CEST,M3.5.0,M10.5.0/3"
+		"EU" )	tz="CET-1"
 			;;
 		"US" )	tz="CST+8"  #PST time
 			;;
@@ -19,22 +19,23 @@ set_timezone_from_countrycode() {
 			;;
 		"IN" )	tz="CST-5:30"
 			;;
-		*)	tz="CET-1CEST,M3.5.0,M10.5.0/3"   #China standard time
+		*)	tz="CET-8"   #China standard time
 			;;
 	esac
 	echo $tz > /tmp/TZ
 
 	# update uci config. config_set doesn't work >_<
 	# config_set $1 timezone $tz
+	uci set luci.main.lang='fr'
+	uci set luci.languages.en='French'
+	uci commit luci
 	iw reg set FR
 	uci set wireless.wifi0.country='FR'
         uci set wireless.wifi1.country='FR'
         uci set wireless.wifi2.country='FR'
-        uci set luci.languages.en='French'
         uci commit
-	uci set luci.main.lang='fr'
-	uci commit luci
-	uci set system.@system[0].timezone="$tz"
+	uci set system.@system[0].timezone="CET-1CEST,M3.5.0,M10.5.0/3"
+	uci commit system
 
 }
 
