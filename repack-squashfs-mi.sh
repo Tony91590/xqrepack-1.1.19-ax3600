@@ -79,6 +79,7 @@ enable_dev_access() {
 	nvram set uart_en=1
 	nvram set ssh_en=1
 	nvram set boot_wait=on
+	nvram set CountryCode=FR
 	nvram commit
 }
 
