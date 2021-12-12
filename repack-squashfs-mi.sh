@@ -51,7 +51,7 @@ cp -R etc/* "$FSDIR/etc/"
 cp -R lib/* "$FSDIR/lib/"
 
 # replace luci from international firmware
-cp -R lua/* "$FSDIR/usr/lib/lua/"
+#cp -R lua/* "$FSDIR/usr/lib/lua/"
 
 # replace luci from international firmware
 # cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
@@ -79,7 +79,6 @@ enable_dev_access() {
 	nvram set uart_en=1
 	nvram set ssh_en=1
 	nvram set boot_wait=on
-	nvram set CountryCode=CN
 	nvram commit
 }
 
