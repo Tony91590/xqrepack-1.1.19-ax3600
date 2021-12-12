@@ -35,8 +35,7 @@ set_timezone_from_countrycode() {
         uci set wireless.wifi2.country='FR'
         uci commit
 	uci set system.@system[0].timezone="$tz"
-	uci commit system
-	
+	uci commit system	
 }
 
 
