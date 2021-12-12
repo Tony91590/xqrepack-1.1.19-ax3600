@@ -124,9 +124,6 @@ sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 # mark web footer so that users can confirm the right version has been flashed
 sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
-uci set luci.languages.en='French'
-uci set luci.main.lang='fr'
-
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
 mksquashfs "$FSDIR" "$IMG.new" -comp xz -b 256K -no-xattrs
