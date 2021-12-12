@@ -9,8 +9,6 @@
 set -e
 
 IMG=$1
-DNS_HOSTNAME=$2
-SECRET=$3
 ROOTPW='$1$qtLLI4cm$c0v3yxzYPI46s28rbAYG//'  # "password"
 
 [ -e "$IMG" ] || { echo "rootfs img not found $IMG"; exit 1; }
@@ -44,7 +42,7 @@ chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 
 # replace www from global
-cp -rf www/* "$FSDIR/www/"
+# cp -rf www/* "$FSDIR/www/"
 
 # copy the latest firmware 
 cp -R etc/* "$FSDIR/etc/"
@@ -53,10 +51,10 @@ cp -R etc/* "$FSDIR/etc/"
 cp -R lib/* "$FSDIR/lib/"
 
 # replace luci from international firmware
-cp -R lua/* "$FSDIR/usr/lib/lua/"
+#cp -R lua/* "$FSDIR/usr/lib/lua/"
 
 # replace luci from international firmware
-# cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
+cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
 
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
@@ -81,7 +79,7 @@ enable_dev_access() {
 	nvram set uart_en=1
 	nvram set ssh_en=1
 	nvram set boot_wait=on
-	nvram set CountryCode=EU
+	nvram set CountryCode=FR
 	nvram commit
 }
 
@@ -92,9 +90,9 @@ NVRAM
 sed -i "s@root:[^:]*@root:${ROOTPW}@" "$FSDIR/etc/shadow"
 
 # stop phone-home in web UI
-cat <<JS >> "$FSDIR/www/js/miwifi-monitor.js"
-(function(){ if (typeof window.MIWIFI_MONITOR !== "undefined") window.MIWIFI_MONITOR.log = function(a,b) {}; })();
-JS
+#cat <<JS >> "$FSDIR/www/js/miwifi-monitor.js"
+#(function(){ if (typeof window.MIWIFI_MONITOR !== "undefined") window.MIWIFI_MONITOR.log = function(a,b) {}; })();
+#JS
 
 # add xqflash tool into firmware for easy upgrades
 cp xqflash "$FSDIR/sbin"
@@ -102,104 +100,30 @@ chmod 0755      "$FSDIR/sbin/xqflash"
 chown root:root "$FSDIR/sbin/xqflash"
 
 # dont start crap services
-for SVC in stat_points statisticsservice \
-		datacenter \
-		smartcontroller \
-		xq_info_sync_mqtt \
-		xiaoqiang_sync \
-		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
-	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
-done
+#for SVC in stat_points statisticsservice \
+#		datacenter \
+#		smartcontroller \
+#		xq_info_sync_mqtt \
+#		xiaoqiang_sync \
+#		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
+#	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
+#done
 
 # prevent stats phone home & auto-update
-for f in StatPoints mtd_crash_log logupload.lua otapredownload; do > $FSDIR/usr/sbin/$f; done
+#for f in StatPoints mtd_crash_log logupload.lua otapredownload; do > $FSDIR/usr/sbin/$f; done
 
-sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
+#sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
 
 # cron jobs are mostly non-OpenWRT stuff
-for f in $FSDIR/etc/crontabs/*; do
-	sed -i 's/^/#/' $f
-done
+#for f in $FSDIR/etc/crontabs/*; do
+#	sed -i 's/^/#/' $f
+#done
 
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
-sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
+#sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
 # mark web footer so that users can confirm the right version has been flashed
 sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
-
-# apply patch from xqrepack repository
-if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
-else
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
-fi
-
-# remove pre-selected DNS option
-export DNS="                    <option value="2"><%:花生壳（oray.com）%></option>"
-sed -i '98s|.*|'"$DNS"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
-
->&2 echo "done remove pre-selected DNS option"
-
-# changing dns form value
-export SUBMIT_DNS='                <input type="text" id="eservername" name="eservername" {if($id == 1)}value="<%:No-ip.com%>"{/if} {if($id == 2)}value="<%:花生壳（oray.com）%>"{/if} {if($id == 3)}value="<%:公云（3322.org）%>"{/if} {if($id == 4)}value="<%:Dyndns.com%>"{/if} {if($id == 5)}value="<%:Custom DNS%>"{/if} class="ipt-text" data-postvalue="{$id}" disabled="disabled" />'
-sed -i '154s|.*|'"$SUBMIT_DNS"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
-
->&2 echo "done changing dns form value"
-
-# adding more ddns option and set it as pre-selected
-export DNS_CUSTOM="                    <option value="5" selected="selected"><%:Custom DNS%></option> \n                    </select>"
-sed -i '102s|.*|'"$DNS_CUSTOM"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
-
->&2 echo "done adding more ddns option and set it as pre-selected"
-
-cat $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
-
-# adding new option in dns service
-echo "\"dyndns.fr\"	\"update_custom_dns.sh\"" >> "$FSDIR/etc/ddns/services"
->&2 echo "done adding new option in dns service"
-
-# cat "$FSDIR/etc/ddns/services"
-
-touch "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-
-# prepare ddns update sh file
->&2 echo "prepare ddns update sh file"
-
-cat <<'DNS' >> "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-#.Distributed under the terms of the GNU General Public License (GPL) version 2.0
-#.2014-2015 Christian Schoenebeck <christian dot schoenebeck at gmail dot com>
-local __DUMMY
-local __UPDURL="http://ns.DNS_HOSTNAME/update?secret=SECRET&domain=[DOMAIN]&addr=[IP]"
-[ -z "$username" ] && write_log 14 "Service section not configured correctly! Missing 'username'"
-[ -z "$password" ] && write_log 14 "Service section not configured correctly! Missing 'password'"
-[ $use_ipv6 -eq 0 ] && __DUMMY="127.0.0.1" || __DUMMY="::1"
-write_log 7 "sending dummy IP to DNS_HOSTNAME"
-__URL=$(echo $__UPDURL | sed -e "s#\[USERNAME\]#$URL_USER#g" -e "s#\[PASSWORD\]#$URL_PASS#g" \
--e "s#\[DOMAIN\]#$domain#g" -e "s#\[IP\]#$__DUMMY#g")
-[ $use_https -ne 0 ] && __URL=$(echo $__URL | sed -e 's#^http:#https:#')
-do_transfer "$__URL" || return 1
-write_log 7 "DNS_HOSTNAME answered:${N}$(cat $DATFILE)"
-grep -E "\"Success\":true" $DATFILE >/dev/null 2>&1 || return 1
-sleep 1
-write_log 7 "sending real IP to DNS_HOSTNAME"
-__URL=$(echo $__UPDURL | sed -e "s#\[USERNAME\]#$URL_USER#g" -e "s#\[PASSWORD\]#$URL_PASS#g" \
--e "s#\[DOMAIN\]#$domain#g" -e "s#\[IP\]#$__IP#g")
-[ $use_https -ne 0 ] && __URL=$(echo $__URL | sed -e 's#^http:#https:#')
-do_transfer "$__URL" || return 1
-write_log 7 "DNS_HOSTNAME answered:${N}$(cat $DATFILE)"
-grep -E "\"Success\":true" $DATFILE >/dev/null 2>&1
-return $?
-DNS
-
-chmod +x "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-
-sed -i 's|DNS_HOSTNAME|'"$DNS_HOSTNAME"'|' "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-
-sed -i 's|SECRET|'"$SECRET"'|' "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-
->&2 cat "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
-
->&2 echo "Done preparing custon update_custom_dns.sh file"
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
