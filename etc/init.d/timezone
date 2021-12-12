@@ -9,7 +9,7 @@ set_timezone_from_countrycode() {
 	cc=`bdata get CountryCode`
 
 	case "$cc" in
-		"EU" )	tz="CST-1"
+		"EU" )	tz="CET-1CEST,M3.5.0,M10.5.0/3"
 			;;
 		"US" )	tz="CST+8"  #PST time
 			;;
