@@ -26,9 +26,12 @@ set_timezone_from_countrycode() {
 
 	# update uci config. config_set doesn't work >_<
 	# config_set $1 timezone $tz
-  uci set luci.languages.en='French'
-  uci set luci.main.lang='fr'
-  uci commit luci
+	uci set wireless.wifi0.country='FR'
+        uci set wireless.wifi1.country='FR'
+        uci set wireless.wifi2.country='FR'
+        uci set luci.languages.en='French'
+        uci set luci.main.lang='fr'
+        uci commit
 	uci set system.@system[0].timezone="$tz"
 
 }
