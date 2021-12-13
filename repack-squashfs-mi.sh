@@ -30,8 +30,8 @@ unsquashfs -f -d "$FSDIR" "$IMG"
 >&2 echo "patching squashfs..."
 
 # create /opt dir
-mkdir -p "$FSDIR/opt"
-chmod 755 "$FSDIR/opt"
+#mkdir -p "$FSDIR/opt"
+#chmod 755 "$FSDIR/opt"
 
 # add global firmware language packages
 cp -R ./language-packages/opkg-info/. $FSDIR/usr/lib/opkg/"info"
@@ -48,7 +48,7 @@ chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 cp -R etc/* "$FSDIR/etc/"
 
 # copy the latest firmware of wifi
-cp -R lib/* "$FSDIR/lib/"
+#cp -R lib/* "$FSDIR/lib/"
 
 # replace luci from international firmware
 #cp -R lua/* "$FSDIR/usr/lib/lua/"
@@ -79,7 +79,7 @@ enable_dev_access() {
 	nvram set uart_en=1
 	nvram set ssh_en=1
 	nvram set boot_wait=on
-        nvram set CountryCode=FR
+
 	nvram commit
 }
 
