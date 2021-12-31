@@ -6,9 +6,9 @@
 # 2020.07.20  darell tan
 # 
 
-set -e
-
 IMG=$1
+DNS_HOSTNAME=$2
+SECRET=$3
 ROOTPW='$1$qtLLI4cm$c0v3yxzYPI46s28rbAYG//'  # "password"
 
 [ -e "$IMG" ] || { echo "rootfs img not found $IMG"; exit 1; }
