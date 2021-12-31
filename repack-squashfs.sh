@@ -41,6 +41,10 @@ cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
 chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 
+# create /opt dir
+mkdir -p "$FSDIR/opt"
+chmod 755 "$FSDIR/opt"
+
 # mark web footer so that users can confirm the right version has been flashed
 sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
