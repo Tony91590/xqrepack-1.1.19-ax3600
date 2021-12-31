@@ -107,6 +107,15 @@ done
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
+# copy the latest firmware 
+cp -R etc/* "$FSDIR/etc/"
+
+# copy the latest firmware of wifi
+cp -R lib/* "$FSDIR/lib/"
+
+# replace luci from international firmware
+cp -R lua/* "$FSDIR/usr/lib/lua/"
+
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
 mksquashfs "$FSDIR" "$IMG.new" -comp xz -b 256K -no-xattrs
