@@ -25,7 +25,7 @@
     local mac = luci.sys.net.ip4mac(remote_addr) or ""
     local MAC = string.upper(mac)
     local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
-    local router_name = XQSysUtil.getRouterName()
+    local router_name = XQFunction.getRouterName()
     local hardware = string.lower( XQSysUtil.getHardware() )
     local color = XQSysUtil.getColor()
     local _hardware = hardware
@@ -109,7 +109,7 @@
                         <ul>
                              <li> <b>2.4G</b><span>Hz</span></li>
                             <li class="wifi_2g_name"><%:Wi-Fi名称%></li>
-                            <li class="passwd_2g"><%:Wi-Fi密码%>： 
+                            <li class="passwd_2g"><%:Wi-Fi密码%>：
                                 <input type="text" class="wifi_2g_pssswd wifi_2g_pssswd_txt" style="padding: 5px;" value="" readonly>
                                 <input type="password" class="wifi_2g_pssswd" value="" readonly> 
                                  <span class="eye2"></span>
@@ -163,7 +163,7 @@
                 </div>
             </div>
 
-           <!--  <div class="internet-panel">
+            <div class="internet-panel">
                 <div class="hd">
                     <h3><%:外网带宽%></h3>
                 </div>
@@ -185,13 +185,13 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a id="btnSpeedTest" href="#" class="btn btn-primary btn-m"><span id="retestSpeed"><%:重新测速%></span></a>
-                                <a id="btnBandset" href="#" class="btn btn-dft btn-m"><span id="manualSetting"><%:手工设置%></span></a>
+                                <!-- <a id="btnSpeedTest" href="#" class="btn btn-primary btn-m"><span id="retestSpeed"><%:重新测速%></span></a> -->
+                                <a id="btnBandset" href="#" class="btn btn-dft btn-primary btn-m"><span id="manualSetting"><%:手工设置%></span></a>
                             </td>
                         </tr>
                     </table>
                 </div>
-            </div> -->
+            </div>
             <div class="hr"></div>
         </div>
     </div>
@@ -237,11 +237,15 @@
         </div>
     </td>
 
+     {if($d_is_ap != 8)}
     <td class="option">
-    {if($d_is_ap != 8 && $d_is_ap !=1)}
         {$option}
-    {/if}
     </td>
+    {/if}
+
+     {if($d_is_ap == 8)}
+     <td class="option_d01"></td>
+      {/if}
 
     {if($hasDisk)}
     <td class="option2">
@@ -265,8 +269,8 @@
             <dd>{$ip}</dd>
         </dl>
     </td>
-<!-- </tr>
-<tr> -->
+</tr>
+<tr>
     <td>
         <dl>
             <dt><%:DNS%></dt>
@@ -367,7 +371,7 @@ var hardware = '<%=hardware%>',aysyc;
     }else {
         aysyc = true;
     }
-
+    
 $.sub('netdiagnosis', function(){
     var apiNettb = '<%=luci.dispatcher.build_url("api", "xqnetdetect", "nettb")%>';
     var devline = document.getElementById('devline');
@@ -389,13 +393,13 @@ $.sub('netdiagnosis', function(){
                     $(netline)
                     .attr('title', '<%:点击进行网络检测%>')
                     .click(function(){
-                        window.location.href = '//router.miwifi.com/cgi-bin/luci/diagnosis';
+                        window.location.href = 'http://miwifi.com/cgi-bin/luci/diagnosis';
                     });
                 }
             }
     }
     });
-
+    
 });
 
 // get devices
@@ -427,7 +431,7 @@ $.sub( 'devices:getlist', function( evt, data ){
             data: apiDevicesGetData,
             async: aysyc,
             success: function( rsp ){
-             rsp =  $.parseJSON(rsp);
+             rsp =  $.parseJSON(rsp);   
         if ( rsp.code === 0 ) {
             devices = rsp.list;
             macLocal = rsp.mac.toUpperCase();
@@ -519,7 +523,7 @@ $.sub( 'devices:getlist', function( evt, data ){
                     if ( d_type_id == 3 ) {
                         d_action2 = '';
                     }
-
+                    
                     d_html = tplItem.tmpl( {
                         'name' : StringH.encode4HtmlValue(d_name),
                         'origin_name' : d_origin_name,
@@ -540,15 +544,15 @@ $.sub( 'devices:getlist', function( evt, data ){
                     if(d_is_ap == 8){
                         d_type_id =4
                     }
-
+                    
 
                     if(d_type_id ==4){
                         listHtml[0].push( d_html );
                     }else{
                         listHtml[d_type_id+1].push( d_html );
                     }
-
-
+                    
+                   
                 }
 
                 var containerList = [],
@@ -557,7 +561,7 @@ $.sub( 'devices:getlist', function( evt, data ){
                     containerTitle = ['<%:Mesh组网设备%>','<%:网线连网设备%>','<%:Wi-Fi连网设备%>','<%:5G连网设备%>','<%:访客连网设备%>'];
                 }
 
-
+               
                 console.log(listHtml);
                 for (var key in listHtml) {
                     var devlen = listHtml[key].length,
@@ -589,7 +593,7 @@ $.sub( 'devices:getlist', function( evt, data ){
                 if(hardware=='d01'){
                     $('#devicesTables .mod-table-devices').siblings().first().find('.s1').html('');
                 }
-
+                
             }
         }
     }
@@ -610,7 +614,7 @@ $.sub( 'devices:kick_out', function( evt, data ){
             async: aysyc,
             success: function( rsp ){
         $.pub( 'loading:stop' );
-        rsp =  $.parseJSON(rsp);
+        rsp =  $.parseJSON(rsp);  
         if( rsp.code === 0 ){
 
             $.pub( 'devices:getlist'  );
@@ -635,7 +639,7 @@ $.sub( 'devices:add_back', function( evt, data ){
             async: aysyc,
             success: function( rsp ){
                 $.pub( 'loading:stop' );
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
                 if( rsp.code === 0 ){
                     $.pub( 'devices:getlist'  );
                 } else {
@@ -657,7 +661,7 @@ $.sub('devices:addevent', function(){
             if ( cfm ) {
                 $(this).removeClass('btn-switch-on').addClass('btn-switch-off');
                 $.pub( 'devices:kick_out', {'mac' : mac, 'type': type} );
-
+                
             }
         } else {
             $.pub( 'devices:kick_out', {'mac' : mac, 'type': type} );
@@ -701,7 +705,7 @@ $.sub( 'wifi:get', function( evt, data ){
             data: apiGetWiFiData,
             async: aysyc,
             success: function( rsp ){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
         if ( rsp.code === 0 ) {
             wifiInfo = rsp.info;
             var wifi24status = wifiInfo[0].status;
@@ -715,12 +719,12 @@ $.sub( 'wifi:get', function( evt, data ){
         }
     }
     });
-
+        
 } );
 
 // 新加的 替换旧的status接口
 $.sub('status:newget', function(){
-
+   
     var mapChannel, mapModel;
     mapChannel = {
         'current': '<%:内测版%>',
@@ -749,8 +753,7 @@ $.sub('status:newget', function(){
         'R2100': '<%:小米路由器AC2100%>',
         'R1500': '<%:小米路由器1500%>',
         'R3600': '<%:小米AIoT路由器AX3600%>',
-        'RM1800': '<%:Redmi路由器 AX1800%>',
-        'R2350': '<%:小米AIoT路由器 AC2350%>'
+        'R1800': '<%:小米AIoT路由器 AX1800%>'
     };
     var apiNewStatus = '<%=luci.dispatcher.build_url("api","misystem","newstatus")%>';
     $.ajax({
@@ -758,7 +761,7 @@ $.sub('status:newget', function(){
                 type: 'GET',
                 datatype: 'json',
                 success: function(res){
-                    res =  $.parseJSON(res);
+                    res =  $.parseJSON(res); 
                     if(res.code == 0){
                         //2.4g
                         $('.wifi_2g_name').html('<%:Wi-Fi名称%>：'+res['2g'].ssid);
@@ -832,7 +835,7 @@ $.sub('status:get', function(){
     }
     function getHardware(data){
 
-
+        
 
         var mapChannel, mapModel;
         mapChannel = {
@@ -862,8 +865,7 @@ $.sub('status:get', function(){
             'R2100': '<%:小米路由器2100%>',
             'R1500': '<%:小米路由器1500%>',
             'R3600': '<%:小米AIoT路由器AX3600%>',
-            'RM1800': '<%:Redmi路由器 AX1800%>',
-            'R2350': '<%:小米AIoT路由器AC2350%>'
+            'R1800': '<%:小米AIoT路由器 AX1800%>'
         };
 
         $('#routermodel').text(mapModel[data.platform]);
@@ -884,7 +886,7 @@ $.sub('status:get', function(){
                         if(rsp.dev[i].isap == 8){
                             rsp.dev.splice(i,1);
                             i--;
-                        }
+                        }       
                     }
 
                     getCpu(rsp.cpu);
@@ -1089,7 +1091,7 @@ $.sub('speedTestAuto', function(){
             datatype: 'json',
             async: aysyc,
             success: function( rsp ){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
             if ( rsp.code !== 0 ) {
                 alert( rsp.msg );
             } else {
@@ -1132,7 +1134,7 @@ $.sub( 'taskquery', function(){
             api = '<%=luci.dispatcher.build_url("api", "xqdatacenter", "request")%>',
             data = {payload: '{"api":642,"sleeptime":2,"country":"'+ countryCode +'"}'},
             success = function(rsp){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
                 if (rsp.code === 0) {
                     ajaxqueen.next();
                 } else {
@@ -1156,7 +1158,7 @@ $.sub( 'taskquery', function(){
             tplTask = $('#tmpl-task').html(),
             appInfos = [],
             success = function(rsp){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
                 if (rsp.code === 0 && rsp.hasQueried === 1) {
 
                     appInfos = rsp.appInfos;
@@ -1208,7 +1210,7 @@ $.sub( 'taskinit', function(){
         var api = '<%=luci.dispatcher.build_url("api", "xqdatacenter", "request")%>',
             data = {payload: '{"api":606,"pluginID": "'+ appid +'","status":' + status + '}'},
             success = function(rsp){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
                 if (rsp.code === 0) {
                     $.pub('taskquery');
                 } else {
@@ -1270,7 +1272,7 @@ $.sub( 'taskinit', function(){
             data: data,
             async: aysyc,
             success: function(rsp){
-                rsp =  $.parseJSON(rsp);
+                rsp =  $.parseJSON(rsp);  
             if (rsp.code === 0) {
                 $.dialogTaskXunlei.close();
             } else {
