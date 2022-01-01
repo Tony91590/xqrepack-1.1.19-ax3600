@@ -573,6 +573,13 @@ $.sub( 'upgrade:upload', function() {
         } );
     } );
 
+    $.sub( 'langset', function(){
+        $.i18nSet('#lang').done(function(){
+            $.selectBeautify();
+        });
+    } );
+});
+
 $.sub( 'upgrade:upload_plug', function() {
 
     var plugDia; //弹窗
@@ -687,6 +694,11 @@ $.sub( 'upgrade:upload_plug', function() {
         return false;
     });
 
+    $.sub( 'langset', function(){
+        $.i18nSet('#lang').done(function(){
+            $.selectBeautify();
+        });
+    } );
 });
 
  var hardware = '<%=hardware%>';
