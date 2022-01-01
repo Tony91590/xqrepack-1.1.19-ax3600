@@ -16,10 +16,32 @@ local netmod = XQFunction.getnetmode()
 --3 mesh从设备  whc_re
 --0 router
 
+local meshcap = XQFunction.isMeshCap()
 local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 %>
 <div class="mod-upgrade" data="<%=netmod%>">
     <div class="hd"><h3><%:升级检测%></h3></div>
+<!--    暂时不做判断mesh都显示 下面的普通路由器的功能-->
+<!--    < isMesh >-->
+<!--    <div class="bd bd-01" id="meshUpgrade">-->
+<!--         <div class="one div1 clearfix">-->
+<!--            <div class="left">-->
+<!--                 <img class="icon-d01" src="/xiaoqiang/web/img/icons/router_d01_101_on.png">-->
+<!--                 <img class="icon-internet" src="/xiaoqiang/web/img/icons/icon_internet_on.png">-->
+<!--            </div>-->
+<!--            <div class="left left-item">-->
+<!--                <p id="blue">&#45;&#45;</p>-->
+<!--                 <p class="upgradeinfo"></p>-->
+<!--                  <a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btnUpgread btn btn-primary btn-l left">-->
+<!--                     <span><%:立即升级%></span>-->
+<!--                  </a>-->
+<!--                <a href="#" class="btnUpload btn btn-dft btn-l right">-->
+<!--                    <span><%:手动升级%></span>-->
+<!--                 </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--     <else>-->
     <div class="bd">
             <h4><%:系统版本%></h4>
             <p id="upgradeinfo"></p>
@@ -33,22 +55,17 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
             </div>
         </div>
     </div>
+<!--    <end>-->
 
-
-<div class="mod-uploadlog" >
+<div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:路由器日志%></h3>
-<!--        <div><%=features["system"]["downloadlogs"]%></div>-->
+        <h3><%:上传日志%></h3>
     </div>
     <div class="bd">
-<!--        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:上传日志%></span></button></div>-->
-
+        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:上传日志%></span></button></div>
+        <%if features["system"]["downloadlogs"] == "1" then%>
         <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:下载日志%></span></button></div>
-
-
-<!--        <%if features["system"]["downloadlogs"] == "1" then%>-->
-<!--        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:下载日志%></span></button></div>-->
-<!--        <%end%>-->
+        <%end%>
     </div>
 </div>
 
@@ -93,33 +110,26 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 </div>
 <%end%>
 
-<div class="mod-uploadlog">
-    <div class="hd">
-        <h3><%:设置系统语言%></h3>
-    </div>
-    <div class="bd">
-        <div class="clearfix">
-            <div class="form-item-select">
-                <label class="k"><%:系统语言%></label>
-                <span class="v"><select name="lang" id="lang" class="beautify"></select></span>
-            </div>
-        </div>
-    </div>
+<%if netmod == 0 or netmod == 4  then%>
+<div class="mod-upgrade" data="<%=netmod%>">
+    <div class="hd"><h3><%:插件安装%></h3></div>
+<div class="bd">
+    <p id="installPlgInfo"></p>
+    <p><a href="#" id="btnUpload_plug" class="btn btn-dft btn-l"><span><%:手动安装%></span></a></p>
 </div>
+</div>
+<%end%>
 
 <div class="mod-set mod-systime">
     <div class="hd">
-        <h3><%:地区与时间%></h3>
+        <h3><%:时区设置%></h3>
     </div>
 
-    <%if netmod == 4 then%>
+    <%if meshcap then%>
      <!-- 主mesh -->
     <div class="bd" id="zhumesh"  style="display:none">
         <div class="group" >
-            <p>
-                <span style="font-size:16px;" id="zoneVal"></span>(<%:配置路由器时选择的地区，不支持更改%>)
-            </p>
-            <%:当前时间%>：<span id="datetiemval"></span>
+            当前系统时间：<span id="datetiemval"></span>
         </div>
         <div class="group">
             <p id="timezoneval"></p>
@@ -130,9 +140,9 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
     <%elseif netmod == 3 then%>
     <div class="bd" id="zimesh" style="display:none">
         <div class="group">
-            <p><%:当前时间%>：<span id="datetiemval2"></span></p>
-            <p><%:当前时区%>：<span id="timezoneval2"></span></p>
-            <!-- <p>*如需修改时区，请切换到主Mesh路由进行修改，会自动同步到子Mesh路由</p> -->
+            <p>当前系统时间：<span id="datetiemval2"></span></p>
+            <p>当前系统时区：<span id="timezoneval2"></span></p>
+            <p>*如需修改时区，请切换到主Mesh路由进行修改，会自动同步到子Mesh路由</p>
         </div>
 
     </div>
@@ -140,9 +150,6 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
     <%else%>
     <div class="bd">
         <div class="group">
-            <p>
-                <span style="font-size:16px;" id="zoneVal"></span>
-            </p>
             <p id="timezoneval"></p>
             <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:更改时区%></span></button>
         </div>
