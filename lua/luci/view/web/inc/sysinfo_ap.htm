@@ -73,7 +73,8 @@ local capmode = XQFunction.getCAPMode()
 </div>
 
 
-<%if romChannel == "release" and features["system"] == "1"  then%>
+        
+<%if netmod ~= 3 then%>
 <div class="mod-uploadlog">
     <div class="hd">
         <h3><%:设置系统语言%></h3>
@@ -88,21 +89,6 @@ local capmode = XQFunction.getCAPMode()
     </div>
 </div>
 <%end%>
-
-<div class="mod-uploadlog">
-    <div class="hd">
-        <h3><%:设置系统语言%></h3>
-    </div>
-    <div class="bd">
-        <div class="clearfix">
-            <div class="form-item-select">
-                <label class="k"><%:系统语言%></label>
-                <span class="v"><select name="lang" id="lang" class="beautify"></select></span>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="mod-set mod-systime">
     <div class="hd">
         <h3><%:地区与时间%></h3>
