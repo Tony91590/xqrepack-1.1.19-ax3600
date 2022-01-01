@@ -73,7 +73,7 @@ local capmode = XQFunction.getCAPMode()
 </div>
 
 
-<%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
+<%if netmod ~= 3 then%>
 <div class="mod-uploadlog">
     <div class="hd">
         <h3><%:设置系统语言%></h3>
