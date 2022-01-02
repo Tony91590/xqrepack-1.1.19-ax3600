@@ -3876,6 +3876,7 @@ config wifi-iface
 	option ifname	'wl$radioidx'
 	option network	'$network'
 	option mode	'$mode'
+	option ssid	'$ssid'
 	option bss_transition '1'
 	option ieee80211k '1'
 	option ieee80211v '1'
