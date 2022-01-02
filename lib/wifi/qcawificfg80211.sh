@@ -3814,7 +3814,7 @@ detect_qcawificfg80211() {
 		network=lan
 		disable=0
 	elif [ $devidx = 1 ]; then
-		htmode=HT40
+		htmode=HT20
 		mode=ap
 		network=lan
 		disable=0
@@ -3854,7 +3854,7 @@ config wifi-device  wifi$devidx
 	option macaddr	$(cat /sys/class/net/${dev}/address)
 	option hwmode	11${mode_11}
 	option htmode	'${htmode}'
-	option country	'FR'
+	option country  'FR'
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
@@ -3876,7 +3876,9 @@ config wifi-iface
 	option ifname	'wl$radioidx'
 	option network	'$network'
 	option mode	'$mode'
-	option ssid	'$ssid'
+	option bss_transition '1'
+	option ieee80211k '1'
+	option ieee80211v '1'
 	option encryption none
 	option wpsdevicename 'XiaoMiRouter'
 
