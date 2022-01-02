@@ -3814,7 +3814,7 @@ detect_qcawificfg80211() {
 		network=lan
 		disable=0
 	elif [ $devidx = 1 ]; then
-		htmode=HT20
+		htmode=HT40
 		mode=ap
 		network=lan
 		disable=0
