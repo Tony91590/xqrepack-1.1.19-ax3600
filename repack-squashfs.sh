@@ -96,7 +96,6 @@ for SVC in stat_points statisticsservice \
 		cron \
 		meshd \
 		syslog-n \
-		trafficd \
 		iweventd \
 		cab_meshd \
 		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
