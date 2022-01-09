@@ -92,12 +92,6 @@ for SVC in stat_points statisticsservice \
 		smartcontroller \
 		xq_info_sync_mqtt \
 		xiaoqiang_sync \
-		netapi \
-		cron \
-		meshd \
-		syslog-n \
-		iweventd \
-		cab_meshd \
 		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
 	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
 done
