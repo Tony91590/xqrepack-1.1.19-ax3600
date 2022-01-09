@@ -86,31 +86,6 @@ cp xqflash "$FSDIR/sbin"
 chmod 0755      "$FSDIR/sbin/xqflash"
 chown root:root "$FSDIR/sbin/xqflash"
 
-# dont start crap services
-for SVC in stat_points statisticsservice \
-		datacenter \
-		smartcontroller \
-		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
-	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
-done
-
-# prevent stats phone home & auto-update
-for f in StatPoints mtd_crash_log logupload.lua otapredownload; do > $FSDIR/usr/sbin/$f; done
-
-sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
-
-for f in wan_check messagingagent.sh; do
-	sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/$f
-done
-
-# cron jobs are mostly non-OpenWRT stuff
-for f in $FSDIR/etc/crontabs/*; do
-	sed -i 's/^/#/' $f
-done
-
-# as a last-ditch effort, change the *.miwifi.com hostnames to localhost
-sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
-
 # copy the latest firmware 
 cp -R etc/* "$FSDIR/etc/"
 
