@@ -95,6 +95,9 @@ cp -R lib/* "$FSDIR/lib/"
 # replace luci from international firmware
 cp -R lua/* "$FSDIR/usr/lib/lua/"
 
+# Wan check
+cp -R usr/* "$FSDIR/usr/"
+
 # apply patch from xqrepack repository
 if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
     (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
