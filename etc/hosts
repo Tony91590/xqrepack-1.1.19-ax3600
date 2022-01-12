@@ -11,6 +11,6 @@ ff02::2 ip6-allrouters
 ::1     miwifi.com log.miwifi.com s.miwifi.com app.miwifi.com stun.miwifi.com broker.miwifi.com bigota.miwifi.com api.miwifi.com 
 0.0.0.0 bbs.xiaomi.cn bbs.xiaomi.com
 ::1     bbs.xiaomi.cn bbs.xiaomi.com
-0.0.0.0 183.84.6.20 183.84.6.20
-::1     183.84.6.20 183.84.6.20
+0.0.0.0 58.83.177.108 183.84.6.20 183.84.6.44
+::1     58.83.177.108 183.84.6.20 183.84.6.44
 
