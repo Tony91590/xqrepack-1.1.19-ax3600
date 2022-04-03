@@ -54,7 +54,7 @@ cp -R lib/* "$FSDIR/lib/"
 #cp -R lua/* "$FSDIR/usr/lib/lua/"
 
 # replace luci from international firmware
-cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
+#cp -R xiaoqiang/* "$FSDIR/usr/share/xiaoqiang/"
 
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
