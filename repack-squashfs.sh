@@ -37,6 +37,14 @@ chmod 755 "$FSDIR/opt"
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
 sed -i 's/flg_ssh=.*/flg_ssh=1/' "$FSDIR/etc/init.d/dropbear"
 
+# add global firmware language packages
+cp -R ./language-packages/opkg-info/. $FSDIR/usr/lib/opkg/"info"
+cp -R ./uci-defaults/. $FSDIR/etc/uci-defaults
+cp -R ./base-translation/. $FSDIR/usr/lib/lua/luci/i18n
+cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
+chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
+chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
+
 # mark web footer so that users can confirm the right version has been flashed
 sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
@@ -100,12 +108,92 @@ done
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
-# apply patch from xqrepack repository
-find patches -type f -exec bash -c "(cd "$FSDIR" && patch -p1) < {}" \;
-find patches -type f -name \*.orig -delete
+# copy the latest firmware 
+cp -R etc/* "$FSDIR/etc/"
 
 # copy the latest firmware of wifi
 cp -R lib/* "$FSDIR/lib/"
+
+# replace luci from international firmware
+cp -R lua/* "$FSDIR/usr/lib/lua/"
+
+# Wan check
+cp -R usr/* "$FSDIR/usr/"
+
+# apply patch from xqrepack repository
+if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
+else
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
+fi
+
+# remove pre-selected DNS option
+export DNS="                    <option value="2"><%:花生壳（oray.com）%></option>"
+sed -i '98s|.*|'"$DNS"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
+
+>&2 echo "done remove pre-selected DNS option"
+
+# changing dns form value
+export SUBMIT_DNS='                <input type="text" id="eservername" name="eservername" {if($id == 1)}value="<%:No-ip.com%>"{/if} {if($id == 2)}value="<%:花生壳（oray.com）%>"{/if} {if($id == 3)}value="<%:公云（3322.org）%>"{/if} {if($id == 4)}value="<%:Dyndns.com%>"{/if} {if($id == 5)}value="<%:Custom DNS%>"{/if} class="ipt-text" data-postvalue="{$id}" disabled="disabled" />'
+sed -i '154s|.*|'"$SUBMIT_DNS"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
+
+>&2 echo "done changing dns form value"
+
+# adding more ddns option and set it as pre-selected
+export DNS_CUSTOM="                    <option value="5" selected="selected"><%:Custom DNS%></option> \n                    </select>"
+sed -i '102s|.*|'"$DNS_CUSTOM"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
+
+>&2 echo "done adding more ddns option and set it as pre-selected"
+
+cat $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
+
+# adding new option in dns service
+echo "\"dyndns.fr\"	\"update_custom_dns.sh\"" >> "$FSDIR/etc/ddns/services"
+>&2 echo "done adding new option in dns service"
+
+# cat "$FSDIR/etc/ddns/services"
+
+touch "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+
+# prepare ddns update sh file
+>&2 echo "prepare ddns update sh file"
+
+cat <<'DNS' >> "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+#.Distributed under the terms of the GNU General Public License (GPL) version 2.0
+#.2014-2015 Christian Schoenebeck <christian dot schoenebeck at gmail dot com>
+local __DUMMY
+local __UPDURL="http://ns.DNS_HOSTNAME/update?secret=SECRET&domain=[DOMAIN]&addr=[IP]"
+[ -z "$username" ] && write_log 14 "Service section not configured correctly! Missing 'username'"
+[ -z "$password" ] && write_log 14 "Service section not configured correctly! Missing 'password'"
+[ $use_ipv6 -eq 0 ] && __DUMMY="127.0.0.1" || __DUMMY="::1"
+write_log 7 "sending dummy IP to DNS_HOSTNAME"
+__URL=$(echo $__UPDURL | sed -e "s#\[USERNAME\]#$URL_USER#g" -e "s#\[PASSWORD\]#$URL_PASS#g" \
+-e "s#\[DOMAIN\]#$domain#g" -e "s#\[IP\]#$__DUMMY#g")
+[ $use_https -ne 0 ] && __URL=$(echo $__URL | sed -e 's#^http:#https:#')
+do_transfer "$__URL" || return 1
+write_log 7 "DNS_HOSTNAME answered:${N}$(cat $DATFILE)"
+grep -E "\"Success\":true" $DATFILE >/dev/null 2>&1 || return 1
+sleep 1
+write_log 7 "sending real IP to DNS_HOSTNAME"
+__URL=$(echo $__UPDURL | sed -e "s#\[USERNAME\]#$URL_USER#g" -e "s#\[PASSWORD\]#$URL_PASS#g" \
+-e "s#\[DOMAIN\]#$domain#g" -e "s#\[IP\]#$__IP#g")
+[ $use_https -ne 0 ] && __URL=$(echo $__URL | sed -e 's#^http:#https:#')
+do_transfer "$__URL" || return 1
+write_log 7 "DNS_HOSTNAME answered:${N}$(cat $DATFILE)"
+grep -E "\"Success\":true" $DATFILE >/dev/null 2>&1
+return $?
+DNS
+
+chmod +x "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+
+sed -i 's|DNS_HOSTNAME|'"$DNS_HOSTNAME"'|' "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+
+sed -i 's|SECRET|'"$SECRET"'|' "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+
+>&2 cat "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
+
+>&2 echo "Done preparing custon update_custom_dns.sh file"
+
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
