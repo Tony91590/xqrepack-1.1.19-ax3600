@@ -95,9 +95,9 @@ for SVC in stat_points statisticsservice \
 done
 
 # prevent stats phone home & auto-update
-for f in StatPoints mtd_crash_log logupload.lua otapredownload; do > $FSDIR/usr/sbin/$f; done
+for f in StatPoints mtd_crash_log logupload.lua otapredownload wanip_check.sh; do > $FSDIR/usr/sbin/$f; done
 
-sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
+rm -f $FSDIR/etc/hotplug.d/iface/*wanip_check
 
 for f in wan_check messagingagent.sh; do
 	sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/$f
