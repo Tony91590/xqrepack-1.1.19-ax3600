@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #
 # unpack, modify and re-pack the Xiaomi R3600 firmware
 # removes checks for release channel before starting dropbear
@@ -6,9 +6,9 @@
 # 2020.07.20  darell tan
 # 
 
-set -e
-
 IMG=$1
+DNS_HOSTNAME=$2
+SECRET=$3
 ROOTPW='$1$qtLLI4cm$c0v3yxzYPI46s28rbAYG//'  # "password"
 
 [ -e "$IMG" ] || { echo "rootfs img not found $IMG"; exit 1; }
@@ -29,10 +29,6 @@ unsquashfs -f -d "$FSDIR" "$IMG"
 
 >&2 echo "patching squashfs..."
 
-# create /opt dir
-mkdir "$FSDIR/opt"
-chmod 755 "$FSDIR/opt"
-
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
 sed -i 's/flg_ssh=.*/flg_ssh=1/' "$FSDIR/etc/init.d/dropbear"
@@ -44,6 +40,10 @@ cp -R ./base-translation/. $FSDIR/usr/lib/lua/luci/i18n
 cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
 chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
+
+# create /opt dir
+mkdir -p "$FSDIR/opt"
+chmod 755 "$FSDIR/opt"
 
 # mark web footer so that users can confirm the right version has been flashed
 sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
@@ -89,8 +89,7 @@ chown root:root "$FSDIR/sbin/xqflash"
 # dont start crap services
 for SVC in stat_points statisticsservice \
 		datacenter \
-		xq_info_sync_mqtt \
-		xiaoqiang_sync \
+		smartcontroller \
 		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
 	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
 done
@@ -193,7 +192,6 @@ sed -i 's|SECRET|'"$SECRET"'|' "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
 >&2 cat "$FSDIR/usr/lib/ddns/update_custom_dns.sh"
 
 >&2 echo "Done preparing custon update_custom_dns.sh file"
-
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
