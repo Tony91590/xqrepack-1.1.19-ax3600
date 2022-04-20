@@ -41,10 +41,10 @@ check_wanip_status()
     ping google.com -c 3 -w 5 > /dev/null 2>&1
     if [ $? != 0 ]
     then
-        wanip_check_log "ping google.com failed, check later !"
+        wanip_check_log "ping eu.api.miwifi.com failed, check later !"
         return 2;
     else
-        wanip_check_log "ping google.com ok, do check !"
+        wanip_check_log "ping eu.api.miwifi.com ok, do check !"
     fi;
 
     # get default MAC
