@@ -38,13 +38,16 @@ parse_json()
 check_wanip_status()
 {
     # wait 5s, check if api.miwifi.com ping OK ?
-    ping google.com -c 3 -w 5 > /dev/null 2>&1
+    local api_miwifi=$(uci -q get miwifi.server.API)
+    [ -z "$api_miwifi" ] && api_miwifi="api.miwifi.com"
+	
+    ping "${api_miwifi}" -c 3 -w 5 > /dev/null 2>&1
     if [ $? != 0 ]
     then
-        wanip_check_log "ping eu.api.miwifi.com failed, check later !"
+        wanip_check_log "ping ${api_miwifi} failed, check later !"
         return 2;
     else
-        wanip_check_log "ping eu.api.miwifi.com ok, do check !"
+        wanip_check_log "ping ${api_miwifi} ok, do check !"
     fi;
 
     # get default MAC
