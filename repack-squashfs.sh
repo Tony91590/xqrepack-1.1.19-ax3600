@@ -89,7 +89,6 @@ chown root:root "$FSDIR/sbin/xqflash"
 # dont start crap services
 for SVC in stat_points statisticsservice \
 		datacenter \
-                smartcontroller \
 		xq_info_sync_mqtt \
 		xiaoqiang_sync \
 		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
