@@ -29,6 +29,7 @@ unsquashfs -f -d "$FSDIR" "$IMG"
 
 rm -f $FSDIR/etc/*
 rm -f $FSDIR/lib/*
+rm -f $FSDIR/bin/*
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
