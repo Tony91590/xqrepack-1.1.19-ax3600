@@ -1,0 +1,12 @@
+Package: kmod-cryptodev
+Version: 4.4.60+1.9.git-2017-10-04-ipq807x-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-crypto-authenc, kmod-crypto-hash
+Source: package/kernel/cryptodev-linux
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: kernel
+Maintainer: Nikos Mavrogiannopoulos <n.mavrogiannopoulos@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 19170
+Description:  This is a driver for that allows to use the Linux kernel supported
+ hardware ciphers by user-space applications.

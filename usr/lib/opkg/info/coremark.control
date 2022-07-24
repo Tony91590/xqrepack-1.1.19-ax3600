@@ -1,0 +1,11 @@
+Package: coremark
+Version: 2021-03-12-1541482b-2
+Depends: libc
+Source: package/lean/coremark
+License: Apache-2.0
+LicenseFiles: LICENSE.md
+Section: utils
+Maintainer: Lim Guo Wei <limguowei@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 10728
+Description:  Embedded Microprocessor Benchmark

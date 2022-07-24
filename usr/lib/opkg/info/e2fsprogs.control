@@ -1,0 +1,11 @@
+Package: e2fsprogs
+Version: 1.44.5-2
+Depends: libc, libuuid, libext2fs
+Source: package/utils/e2fsprogs
+License: GPL-2.0
+LicenseFiles: NOTICE
+Section: utils
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 167283
+Description:  This package contains essential ext2 filesystem utilities which consists of
+ e2fsck, mke2fs and most of the other core ext2 filesystem utilities.

@@ -1,0 +1,10 @@
+Package: proto-bonding
+Version: 2020-03-30-1
+Depends: libc, kmod-bonding
+Source: package/zjinlin/bonding
+License: GPL-2.0
+Section: net
+Maintainer: Helge Mader <ma@dev.tdt.de>
+Architecture: all
+Installed-Size: 1855
+Description:  This package contains the channel bonding proto handler for netifd

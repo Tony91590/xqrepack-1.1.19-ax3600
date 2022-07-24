@@ -1,0 +1,9 @@
+Package: qca-nss-fw-eip-hk
+Version: 2.5.7-1
+Depends: libc
+Provides: qca-nss-fw-eip
+Source: package/qca/nss-prop/qca-nss-fw-eip-hk
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 8576
+Description:  This package contains the NSS firmwares (hk) for QCA chipset

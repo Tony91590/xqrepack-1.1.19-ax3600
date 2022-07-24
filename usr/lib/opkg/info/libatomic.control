@@ -1,0 +1,12 @@
+Package: libatomic
+Version: 7.5.0-1
+Depends: libgcc
+Source: package/libs/toolchain
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 4866
+Description:  Atomic support library

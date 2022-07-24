@@ -1,0 +1,9 @@
+Package: qca-wrapd
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl, qca-cfg80211
+Source: package/qca/qca/net/qca-wrapd
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 42824
+Description:  User Space application to support QWRAP feature

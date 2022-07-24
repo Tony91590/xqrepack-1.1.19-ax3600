@@ -1,0 +1,11 @@
+Package: libflac
+Version: 1.3.2-1
+Depends: libc
+Source: extra/packages/libs/flac
+License: GFDL-1.2 GPL-2 LGPL-2.1 BSD-3-Clause
+LicenseFiles: README COPYING.FDL COPYING.GPL COPYING.LGPL COPYING.Xiph
+Section: libs
+Maintainer: Ted Hess <thess@kitschensync.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 77776
+Description:  Free Lossless Audio Codec library

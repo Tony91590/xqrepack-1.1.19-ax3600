@@ -1,0 +1,11 @@
+Package: bind-client
+Version: 9.11.14-1
+Depends: libc, bind-libs
+Source: extra/packages/net/bind
+License: MPL-2.0
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Noah Meyerhans <frodo@morgul.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 20513
+Description:  bind dynamic DNS client

@@ -1,0 +1,4 @@
+/usr/lib/lua/luci/model/cbi/sqm.lua
+/usr/lib/lua/luci/controller/sqm.lua
+/etc/uci-defaults/50-luci-sqm
+/usr/share/rpcd/acl.d/luci-app-sqm.json

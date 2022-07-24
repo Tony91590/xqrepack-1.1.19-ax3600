@@ -1,0 +1,9 @@
+Package: libathtestcmd
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl, libtcmd, libtlv2, libtlvutil
+Source: package/qca/qca/utils/libathtestcmd
+Section: QTI
+Maintainer: Qualcomm Technologies, Inc
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 22640
+Description:  QTI libathtestcmd utils

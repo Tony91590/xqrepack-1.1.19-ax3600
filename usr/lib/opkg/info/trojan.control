@@ -1,0 +1,10 @@
+Package: trojan
+Version: 1.16.0-2
+Depends: libc, libpthread, libstdcpp, libopenssl, boost, boost-system, boost-program_options, boost-date_time
+Source: package/lean/trojan
+License: GPL-3.0
+Section: net
+Maintainer: GreaterFire
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 218972
+Description:  An unidentifiable mechanism that helps you bypass GFW

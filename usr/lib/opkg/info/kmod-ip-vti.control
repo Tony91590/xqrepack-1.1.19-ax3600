@@ -1,0 +1,9 @@
+Package: kmod-ip-vti
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-iptunnel, kmod-iptunnel4, kmod-ipsec4
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 4452
+Description:  Kernel modules for IP VTI (Virtual Tunnel Interface)

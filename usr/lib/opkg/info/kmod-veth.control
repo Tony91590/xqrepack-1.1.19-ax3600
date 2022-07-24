@@ -1,0 +1,11 @@
+Package: kmod-veth
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c)
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 2993
+Description:  This device is a local ethernet tunnel. Devices are created in pairs.
+ When one end receives the packet it appears on its pair and vice
+ versa.

@@ -1,0 +1,11 @@
+Package: libpcre2-16
+Version: 10.30-1
+Depends: libc
+Source: extra/packages/libs/pcre2
+License: BSD-3-Clause
+LicenseFiles: LICENCE
+Section: libs
+Maintainer: Shane Peelar <lookatyouhacker@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 88467
+Description:  A Perl Compatible Regular Expression library (16bit support)

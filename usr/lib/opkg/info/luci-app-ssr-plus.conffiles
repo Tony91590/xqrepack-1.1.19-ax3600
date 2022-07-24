@@ -1,0 +1,11 @@
+/etc/config/shadowsocksr
+/etc/ssrplus/black.list
+/etc/ssrplus/white.list
+/etc/ssrplus/gfw_list.conf
+/etc/ssrplus/ad.conf
+/etc/ssrplus/china_ssr.txt
+/etc/ssrplus/gfw_base.conf
+/etc/ssrplus/deny.list
+/etc/ssrplus/netflixip.list
+/etc/ssrplus/netflix.list
+/etc/ssrplus/oversea_list.conf

@@ -1,0 +1,14 @@
+Package: libunbound-light
+Version: 1.10.0-2
+Depends: libc, libopenssl
+Provides: libunbound
+Source: extra/packages/net/unbound
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Section: libs
+Require-User: unbound:unbound
+Maintainer: Eric Luehrsen <ericluehrsen@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 350280
+Description:  This package contains the Unbound shared library with basic includes
+ necessary to meet the needs of UCI/LuCI configuration options.

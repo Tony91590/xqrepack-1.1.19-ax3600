@@ -1,0 +1,9 @@
+Package: kmod-ip6tables-extra
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-ip6tables
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 4787
+Description:  Netfilter IPv6 extra header matching modules

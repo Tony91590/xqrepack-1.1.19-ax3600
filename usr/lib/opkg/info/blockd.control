@@ -1,0 +1,10 @@
+Package: blockd
+Version: 2020-05-12-84269037-1
+Depends: libc, block-mount, fstools, libubus, kmod-fs-autofs4, libblobmsg-json, libjson-c
+Source: package/system/fstools
+License: GPL-2.0
+Section: base
+Maintainer: John Crispin <john@phrozen.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 5646
+Description:  Block device automounting

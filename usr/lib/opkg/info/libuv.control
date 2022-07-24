@@ -1,0 +1,13 @@
+Package: libuv
+Version: 1.40.0-1
+Depends: libc, libpthread, librt
+Source: extra/packages/libs/libuv
+License: MIT
+LicenseFiles: LICENSE
+Section: libs
+Maintainer: Marko Ratkaj <marko.ratkaj@sartura.hr>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 56073
+Description:  libuv is a multi-platform support library with a focus on asynchronous I/O. It
+ was primarily developed for use by Node.js, but it's also used by Luvit, Julia,
+ pyuv, and others.

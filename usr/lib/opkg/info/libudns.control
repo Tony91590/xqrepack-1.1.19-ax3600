@@ -1,0 +1,11 @@
+Package: libudns
+Version: 0.4-1
+Depends: libc
+Source: extra/packages/libs/udns
+License: LGPL-2.1
+Section: libs
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 17220
+Description:  UDNS is a stub DNS resolver library with ability to perform both syncronous
+ and asyncronous DNS queries.

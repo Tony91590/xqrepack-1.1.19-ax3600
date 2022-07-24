@@ -1,0 +1,8 @@
+Package: luci-lib-fs
+Version: 1.0-1
+Depends: libc, luci, luci-lib-nixio
+Source: package/zjinlin/luci-lib-fs
+Section: lang
+Architecture: all
+Installed-Size: 2345
+Description:  luci-lib-fs

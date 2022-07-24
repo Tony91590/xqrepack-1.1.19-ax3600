@@ -1,0 +1,2 @@
+/etc/uci-defaults/ddns_godaddy.com-v1
+/usr/lib/ddns/update_godaddy_com_v1.sh

@@ -1,0 +1,10 @@
+Package: lede-keyring
+Version: 2017-01-20-a50b7529-1
+Depends: libc
+Source: package/system/lede-keyring
+License: GPL-2.0
+Section: base
+Maintainer: John Crispin <john@phrozen.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 867
+Description:  The keyring of with the developer using and gpg public keys.

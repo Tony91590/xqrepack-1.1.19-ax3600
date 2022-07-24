@@ -1,0 +1,10 @@
+Package: luci-app-turboacc
+Version: git-21.352.36852-ff73fe5
+Depends: libc, pdnsd-alt
+Source: package/lean/luci-app-turboacc
+License: GPL-3.0-only
+Section: luci
+Maintainer: Tianling Shen <cnsztl@immortalwrt.org>
+Architecture: all
+Installed-Size: 6298
+Description:  LuCI support for Flow Offload / Shortcut-FE

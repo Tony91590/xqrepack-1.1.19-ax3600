@@ -1,0 +1,10 @@
+Package: fdisk
+Version: 2.37
+Depends: libc, libblkid, libsmartcols, libfdisk, libncursesw
+Source: package/utils/util-linux
+License: GPL-2.0-only
+LicenseFiles: COPYING libblkid/COPYING libmount/COPYING Documentation/licenses/COPYING.GPLv2 Documentation/licenses/COPYING.LGPLv2.1 libuuid/COPYING Documentation/licenses/COPYING.BSD-3
+Section: utils
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 51144
+Description:  a menu-driven program for creation and manipulation of partition tables

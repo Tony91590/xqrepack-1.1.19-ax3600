@@ -1,0 +1,10 @@
+Package: kmod-macvlan
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c)
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 7952
+Description:  A kernel module which allows one to create virtual interfaces that
+ map packets to or from specific MAC addresses to a particular interface

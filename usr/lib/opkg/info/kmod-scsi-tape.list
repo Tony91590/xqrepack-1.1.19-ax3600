@@ -1,0 +1,2 @@
+/etc/modules.d/45-scsi-tape
+/lib/modules/4.4.60/st.ko

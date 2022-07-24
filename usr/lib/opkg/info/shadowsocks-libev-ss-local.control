@@ -1,0 +1,11 @@
+Package: shadowsocks-libev-ss-local
+Version: 3.3.4-1
+Depends: libc, libev, libmbedtls, libpthread, libsodium, shadowsocks-libev-config, libpcre
+Source: package/zjinlin/shadowsocks-libev
+License: GPL-3.0-or-later
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 47976
+Description:  shadowsocks-libev ss-local

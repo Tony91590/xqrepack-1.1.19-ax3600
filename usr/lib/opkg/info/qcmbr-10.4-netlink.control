@@ -1,0 +1,9 @@
+Package: qcmbr-10.4-netlink
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, librt, libnl-tiny
+Source: package/qca/qca/utils/qcmbr-10.4
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 19259
+Description:  netlink - QCA ART Driver & tools

@@ -1,0 +1,3 @@
+/etc/modules.d/nft-nat6
+/lib/modules/4.4.60/nft_chain_nat_ipv6.ko
+/lib/modules/4.4.60/nft_redir_ipv6.ko

@@ -1,0 +1,9 @@
+Package: qca-cfg80211
+Version: gff73fe5a-dirty-1
+Depends: libc, libnl, libpthread, iw
+Source: package/qca/qca/utils/qca-cfg80211
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 6008
+Description:  QCA cfg80211 utils

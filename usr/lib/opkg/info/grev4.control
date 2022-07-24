@@ -1,0 +1,10 @@
+Package: grev4
+Version: 1-7
+Depends: libc, kmod-gre, resolveip
+Source: package/network/config/gre
+License: GPL-2.0
+Section: net
+Maintainer: Hans Dedecker <dedeckeh@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 105
+Description:  Generic Routing Encapsulation config support (IPv4) in /etc/config/network.

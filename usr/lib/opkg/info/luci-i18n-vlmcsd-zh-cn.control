@@ -1,0 +1,8 @@
+Package: luci-i18n-vlmcsd-zh-cn
+Version: 1.0-5
+Depends: libc, luci-app-vlmcsd
+Source: package/lean/luci-app-vlmcsd
+Section: luci
+Architecture: all
+Installed-Size: 803
+Description:  Translation for luci-app-vlmcsd - 简体中文 (Simplified Chinese)

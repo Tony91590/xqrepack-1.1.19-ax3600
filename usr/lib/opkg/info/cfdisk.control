@@ -1,0 +1,10 @@
+Package: cfdisk
+Version: 2.37
+Depends: libc, libblkid, libncurses, libsmartcols, libfdisk, libmount
+Source: package/utils/util-linux
+License: GPL-2.0-only
+LicenseFiles: COPYING libblkid/COPYING libmount/COPYING Documentation/licenses/COPYING.GPLv2 Documentation/licenses/COPYING.LGPLv2.1 libuuid/COPYING Documentation/licenses/COPYING.BSD-3
+Section: utils
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 34454
+Description:  cfdisk is a curses-based program for partitioning any hard disk drive

@@ -1,0 +1,11 @@
+Package: curl
+Version: 7.79.1
+Depends: libc, libcurl
+Source: package/network/utils/curl
+License: MIT
+LicenseFiles: COPYING
+Section: net
+Maintainer: Stan Grishin <stangri@melmac.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 54109
+Description:  A client-side URL transfer utility

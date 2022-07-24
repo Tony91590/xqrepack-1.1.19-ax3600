@@ -1,0 +1,4 @@
+/lib/modules/4.4.60/ppdev.ko
+/lib/modules/4.4.60/parport.ko
+/lib/modules/4.4.60/lp.ko
+/etc/modules.d/50-lp

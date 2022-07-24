@@ -1,0 +1,11 @@
+/lib/wifi/dpp-operating-class-update.sh
+/usr/sbin/hapd
+/etc/hotplug.d/button/51-wps-reset
+/usr/sbin/hostapd_cli
+/lib/wifi/wps-hostapd-nbh-update
+/lib/wifi/dpp-supplicant-update-uci
+/etc/hotplug.d/button/50-wps
+/lib/wifi/dpp-hostapd-update-uci
+/etc/hotplug.d/button/54-wps-extender
+/usr/sbin/wpsd
+/lib/wifi/wps-hostapd-update-uci

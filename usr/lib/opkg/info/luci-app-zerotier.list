@@ -1,0 +1,10 @@
+/usr/lib/lua/luci/model/cbi/zerotier/info.lua
+/etc/uci-defaults/40_luci-zerotier
+/etc/init.d/zerotier
+/etc/zerotier/zerotier.log
+/usr/share/rpcd/acl.d/luci-app-zerotier.json
+/etc/zerotier.stop
+/usr/lib/lua/luci/controller/zerotier.lua
+/etc/zerotier.start
+/usr/lib/lua/luci/model/cbi/zerotier/settings.lua
+/usr/lib/lua/luci/view/zerotier/zerotier_status.htm

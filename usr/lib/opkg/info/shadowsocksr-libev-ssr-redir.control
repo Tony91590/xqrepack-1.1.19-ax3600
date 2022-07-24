@@ -1,0 +1,10 @@
+Package: shadowsocksr-libev-ssr-redir
+Version: 2.5.6-9
+Depends: libc, libev, libsodium, libopenssl, libpthread, libpcre, libudns, zlib
+Source: package/lean/helloworld/shadowsocksr-libev
+License: GPL-3.0
+LicenseFiles: LICENSE
+Section: net
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 51709
+Description:  shadowsocksr-libev ssr-redir

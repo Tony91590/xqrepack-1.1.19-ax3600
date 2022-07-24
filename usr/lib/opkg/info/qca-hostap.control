@@ -1,0 +1,9 @@
+Package: qca-hostap
+Version: gff73fe5a-dirty-1
+Depends: libc, libnl, libopenssl, librt
+Source: package/qca/qca/net/qca-hostap
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 714414
+Description:  This package contains the IEEE 802.1x/WPA/EAP/RADIUS Authenticator.

@@ -1,0 +1,9 @@
+Package: qca-wifi-hk-fw-hw1-10.4-asic
+Version: IPQ8074-WLAN.HK.2.5.r4-00683-QCAHKSWPL_SILICONZ-1-1
+Depends: libc
+Source: package/qca/qca_hk/net/qca-hk
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: all
+Installed-Size: 105
+Description:  This package contains the qca-wifi firmware(-hw1-10.4-asic) used in 10.x drivers

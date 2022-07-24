@@ -1,0 +1,8 @@
+Package: qca-ssdk-shell
+Version: gff73fe5a-dirty-1
+Depends: libc
+Source: package/qca/ssdk/qca-ssdk-shell
+Section: QCA
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 168416
+Description:  Shell application for QCA SSDK

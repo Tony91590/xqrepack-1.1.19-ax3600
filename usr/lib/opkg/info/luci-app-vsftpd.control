@@ -1,0 +1,8 @@
+Package: luci-app-vsftpd
+Version: 1.0-3
+Depends: libc, vsftpd-alt
+Source: package/lean/luci-app-vsftpd
+Section: luci
+Architecture: all
+Installed-Size: 2534
+Description:  LuCI support for VSFTPD

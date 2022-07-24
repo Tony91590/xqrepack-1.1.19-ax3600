@@ -1,0 +1,10 @@
+Package: vtiv6
+Version: 1-1
+Depends: libc, kmod-ip6-vti
+Source: package/network/config/vti
+License: GPL-2.0
+Section: net
+Maintainer: Andre Valentin <avalentin@marcant.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 105
+Description:  Virtual IPsec Tunnel Interface config support (IPv6) in /etc/config/network.

@@ -1,0 +1,9 @@
+Package: luci-app-sqm
+Version: 1.4.0-9
+Depends: libc, sqm-scripts
+Source: extra/luci/applications/luci-app-sqm
+Section: luci
+Maintainer: Toke Høiland-Jørgensen <toke@toke.dk>
+Architecture: all
+Installed-Size: 3335
+Description:  Luci interface for the SQM scripts queue management package

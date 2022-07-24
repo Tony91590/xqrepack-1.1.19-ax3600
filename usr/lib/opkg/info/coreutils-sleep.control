@@ -1,0 +1,9 @@
+Package: coreutils-sleep
+Version: 8.23-7
+Depends: libc, coreutils
+Source: extra/packages/utils/coreutils
+Section: utils
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 18337
+Description:  Full version of standard GNU sleep utility.

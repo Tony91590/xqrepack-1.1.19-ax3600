@@ -1,0 +1,11 @@
+Package: ip-full
+Version: 4.4.0-10-cake-upstream
+Depends: libc, libnl-tiny
+Provides: ip
+Source: package/network/utils/iproute2
+License: GPL-2.0
+Section: net
+Maintainer: Russell Senior <russell@personaltelco.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 130855
+Description:  Routing control utility (Full)

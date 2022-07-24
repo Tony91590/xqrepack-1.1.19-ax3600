@@ -1,0 +1,10 @@
+Package: libustream-openssl
+Version: 2020-12-10-68d09243-2
+Depends: libc, libubox, libopenssl
+Source: package/libs/ustream-ssl
+License: ISC
+Section: libs
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 4159
+Description:  ustream SSL Library (openssl)

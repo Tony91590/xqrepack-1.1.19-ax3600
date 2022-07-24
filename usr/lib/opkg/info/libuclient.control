@@ -1,0 +1,10 @@
+Package: libuclient
+Version: 2021-05-14-6a6011df-1
+Depends: libc, libubox
+Source: package/libs/uclient
+License: ISC
+Section: libs
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 9511
+Description:  HTTP/1.1 client library

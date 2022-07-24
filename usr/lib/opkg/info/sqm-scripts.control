@@ -1,0 +1,10 @@
+Package: sqm-scripts
+Version: 1.6.0-1
+Depends: libc, tc, kmod-sched-core, kmod-ifb, iptables, iptables-mod-ipopt, iptables-mod-conntrack-extra, kmod-sched-cake
+Source: extra/packages/net/sqm-scripts
+License: GPL-2.0-only
+Section: net
+Maintainer: Toke Høiland-Jørgensen <toke@toke.dk>
+Architecture: all
+Installed-Size: 18616
+Description:  A set of scripts that does simple SQM configuration.

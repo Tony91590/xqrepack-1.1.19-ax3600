@@ -1,0 +1,8 @@
+Package: ipt2socks
+Version: 1.1.3-1
+Depends: libc, libuv
+Source: package/zjinlin/ipt2socks-master
+Section: net
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 31287
+Description:  Utility for converting iptables (REDIRECT/TPROXY) to SOCKS5.

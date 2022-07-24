@@ -1,0 +1,9 @@
+Package: luci-app-wireguard
+Version: git-20.085.19816-df13074-1
+Depends: libc, wireguard-tools, kmod-wireguard, luci-proto-wireguard
+Source: extra/luci/applications/luci-app-wireguard
+Section: luci
+Maintainer: Dan Luedtke <mail@danrl.com>
+Architecture: all
+Installed-Size: 2413
+Description:  WireGuard Status

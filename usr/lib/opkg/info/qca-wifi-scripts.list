@@ -1,0 +1,10 @@
+/lib/wifi_interface_helper.sh
+/lib/preinit/01_preinit_do_ipq806x.sh
+/sbin/setmac
+/sbin/tempinfo
+/sbin/getmac
+/lib/read_caldata_to_fs.sh
+/sbin/setmac_all
+/lib/update_smp_affinity.sh
+/lib/ipq806x.sh
+/lib/preinit/81_load_wifi_board_bin

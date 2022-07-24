@@ -1,0 +1,10 @@
+Package: map-t
+Version: 6
+Depends: libc, map, kmod-nat46
+Source: package/zjinlin/nat46
+License: GPL-2.0
+Section: net
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 105
+Description:  MAP-T configuration support

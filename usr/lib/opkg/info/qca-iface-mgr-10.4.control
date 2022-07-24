@@ -1,0 +1,9 @@
+Package: qca-iface-mgr-10.4
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl, libwifisoncfg
+Source: package/qca/qca/net/qca-iface-mgr-10.4
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 37471
+Description:  User Space application to manage interfaces

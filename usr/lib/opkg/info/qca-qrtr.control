@@ -1,0 +1,8 @@
+Package: qca-qrtr
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread
+Source: package/qca/qca-platform-utils/qca-qmi-framework
+Section: QCA
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 10488
+Description:  QCA Linux QMI framework software

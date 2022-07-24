@@ -1,0 +1,11 @@
+Package: libnftnl
+Version: 1.1.7-2
+Depends: libc, libmnl
+Source: package/libs/libnftnl
+License: GPL-2.0+
+Section: libs
+Maintainer: Steven Barth <steven@midlink.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 48337
+Description:  libnftnl is a userspace library providing a low-level netlink
+ programming interface (API) to the in-kernel nf_tables subsystem.

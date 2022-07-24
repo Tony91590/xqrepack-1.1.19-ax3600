@@ -1,0 +1,11 @@
+Package: libss
+Version: 1.44.5-2
+Depends: libc, libcomerr
+Source: package/utils/e2fsprogs
+License: GPL-2.0
+LicenseFiles: NOTICE
+Section: libs
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 7981
+Description:  This pacakge contains libss, a command-line interface parsing library
+ bundled with e2fsprogs.

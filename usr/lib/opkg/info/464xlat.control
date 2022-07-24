@@ -1,0 +1,10 @@
+Package: 464xlat
+Version: 6
+Depends: libc, kmod-nat46
+Source: package/zjinlin/nat46
+License: GPL-2.0
+Section: net
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 3959
+Description:  464xlat CLAT support

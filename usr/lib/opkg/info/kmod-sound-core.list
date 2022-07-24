@@ -1,0 +1,7 @@
+/lib/modules/4.4.60/snd-rawmidi.ko
+/lib/modules/4.4.60/snd-seq-device.ko
+/lib/modules/4.4.60/snd-compress.ko
+/lib/modules/4.4.60/snd-hwdep.ko
+/lib/modules/4.4.60/snd-pcm-oss.ko
+/etc/modules.d/30-sound-core
+/lib/modules/4.4.60/snd-mixer-oss.ko

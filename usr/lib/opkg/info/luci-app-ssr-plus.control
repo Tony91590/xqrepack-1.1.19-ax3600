@@ -1,0 +1,8 @@
+Package: luci-app-ssr-plus
+Version: 184-10
+Depends: libc, coreutils, coreutils-base64, dns2socks, dnsmasq-full, ipset, ip-full, iptables-mod-tproxy, lua, libuci-lua, microsocks, pdnsd-alt, tcping, resolveip, uclient-fetch, shadowsocks-libev-ss-local, shadowsocks-libev-ss-redir, shadowsocks-libev-ss-server, shadowsocksr-libev-ssr-local, shadowsocksr-libev-ssr-redir, shadowsocksr-libev-ssr-server, trojan, ipt2socks
+Source: package/lean/helloworld/luci-app-ssr-plus
+Section: luci
+Architecture: all
+Installed-Size: 194123
+Description:  SS/SSR/V2Ray/Trojan/NaiveProxy/Socks5/Tun LuCI interface

@@ -1,0 +1,10 @@
+Package: relayd
+Version: 2016-02-07-ad0b25ad-2
+Depends: libc, libubox
+Source: package/network/services/relayd
+License: GPL-2.0
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 9901
+Description:  Transparent routing / relay daemon

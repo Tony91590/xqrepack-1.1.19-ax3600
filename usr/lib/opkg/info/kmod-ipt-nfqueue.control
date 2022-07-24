@@ -1,0 +1,11 @@
+Package: kmod-ipt-nfqueue
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-ipt-core, kmod-nfnetlink-queue
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 2061
+Description:  Netfilter module for user-space packet queuing
+ Includes:
+ - NFQUEUE

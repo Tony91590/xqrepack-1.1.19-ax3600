@@ -1,0 +1,11 @@
+Package: iptables-mod-fullconenat
+Version: 2020-05-09-869f1460-1
+Depends: libc, iptables, kmod-ipt-fullconenat, iptables-mod-nat-extra
+Source: package/zjinlin/openwrt-fullconenat
+License: GPL-2.0
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Chion Tang <tech@chionlab.moe>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 2585
+Description:  FULLCONENAT iptables extension

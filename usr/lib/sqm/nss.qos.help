@@ -1,0 +1,1 @@
+EXperimental HW-accelerated traffic shaping support. Select fq_codel as discipline and nss.qos as setup script. 

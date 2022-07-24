@@ -1,0 +1,6 @@
+/etc/uci-defaults/luci-vlmcsd
+/usr/lib/lua/luci/controller/vlmcsd.lua
+/usr/lib/lua/luci/view/vlmcsd/vlmcsd_status.htm
+/etc/init.d/kms
+/etc/config/vlmcsd
+/usr/lib/lua/luci/model/cbi/vlmcsd.lua

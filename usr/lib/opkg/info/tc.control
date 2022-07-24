@@ -1,0 +1,10 @@
+Package: tc
+Version: 4.4.0-10-cake-upstream
+Depends: libc, kmod-sched-core
+Source: package/network/utils/iproute2
+License: GPL-2.0
+Section: net
+Maintainer: Russell Senior <russell@personaltelco.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 115750
+Description:  Traffic control utility

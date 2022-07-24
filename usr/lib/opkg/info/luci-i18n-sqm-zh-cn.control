@@ -1,0 +1,9 @@
+Package: luci-i18n-sqm-zh-cn
+Version: 1.4.0-9
+Depends: libc, luci-app-sqm
+Source: extra/luci/applications/luci-app-sqm
+Section: luci
+Maintainer: Toke Høiland-Jørgensen <toke@toke.dk>
+Architecture: all
+Installed-Size: 1937
+Description:  Translation for luci-app-sqm - 简体中文 (Simplified Chinese)

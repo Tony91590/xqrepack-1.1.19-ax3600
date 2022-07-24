@@ -1,0 +1,9 @@
+Package: kernel
+Version: 4.4.60-1-848d8032804d105f1c74134021121b1c
+Depends: libc
+Source: package/kernel/linux
+License: GPLv2
+Section: sys
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 105
+Description:  Virtual kernel package

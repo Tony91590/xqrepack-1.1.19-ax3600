@@ -1,0 +1,7 @@
+/usr/lib/lua/luci/view/mia/mia_status.htm
+/usr/lib/lua/luci/model/cbi/mia.lua
+/etc/config/mia
+/usr/lib/lua/luci/controller/mia.lua
+/etc/uci-defaults/luci-mia
+/etc/mia.include
+/etc/init.d/mia

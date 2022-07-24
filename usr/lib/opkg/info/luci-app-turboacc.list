@@ -1,0 +1,7 @@
+/etc/uci-defaults/turboacc
+/etc/init.d/turboacc
+/usr/lib/lua/luci/model/cbi/turboacc.lua
+/etc/config/turboacc
+/usr/share/dnscache/dnscache-while.sh
+/usr/lib/lua/luci/controller/turboacc.lua
+/usr/lib/lua/luci/view/turboacc/turboacc_status.htm

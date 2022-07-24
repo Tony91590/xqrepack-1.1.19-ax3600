@@ -1,0 +1,9 @@
+Package: libhyficommon
+Version: gff73fe5a-dirty-1
+Depends: libc, qca-son-mem-debug
+Source: package/qca/qca-lib/libqcacommon
+Section: QCA
+Maintainer: Qualcomm Atheros, Inc.
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 28465
+Description:  This Package contains the Hy-Fi Common Functionality Library

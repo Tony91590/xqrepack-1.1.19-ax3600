@@ -1,0 +1,3 @@
+/etc/modules.d/mmc-spi
+/lib/modules/4.4.60/mmc_spi.ko
+/lib/modules/4.4.60/of_mmc_spi.ko

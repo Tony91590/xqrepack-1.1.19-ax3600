@@ -1,0 +1,9 @@
+Package: luci-base
+Version: git-20.085.19816-df13074-1
+Depends: libc, lua, libuci-lua, luci-lib-nixio, luci-lib-ip, rpcd, libubus-lua, luci-lib-jsonc
+Source: extra/luci/modules/luci-base
+License: Apache-2.0
+Section: luci
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 109147
+Description:  LuCI core libraries

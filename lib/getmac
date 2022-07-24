@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. /lib/functions.sh
+. /lib/functions/system.sh
+
+board=$(cat /proc/device-tree/model)
+
+case "$board" in
+	*"MF269"*)
+		printf $(mtd_get_mac_binary mac 0x0) 2>/dev/null
+	;;
+*)
+	printf 0 2>/dev/null
+	;;
+esac

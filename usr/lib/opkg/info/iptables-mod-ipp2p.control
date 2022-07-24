@@ -1,0 +1,10 @@
+Package: iptables-mod-ipp2p
+Version: 2.11-1
+Depends: libc, iptables, kmod-ipt-ipp2p
+Source: package/network/utils/xtables-addons
+License: GPL-2.0
+Section: net
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 2484
+Description:  IPP2P iptables extension

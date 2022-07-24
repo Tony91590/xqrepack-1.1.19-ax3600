@@ -1,0 +1,9 @@
+Package: libtlv2
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl
+Source: package/qca/qca/utils/libtlv2
+Section: QTI
+Maintainer: Qualcomm Technologies, Inc
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 24962
+Description:  QTI libtlv2 utils

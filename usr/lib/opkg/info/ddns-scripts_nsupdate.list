@@ -1,0 +1,2 @@
+/usr/lib/ddns/update_nsupdate.sh
+/etc/uci-defaults/ddns_nsupdate

@@ -1,0 +1,9 @@
+Package: qca-nss-fw-hk-retail
+Version: 7-1
+Depends: libc
+Provides: qca-nss-fw-hk
+Source: package/qca/nss/qca-nss-fw-hk-retail
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 419332
+Description:  This package contains the NSS firmwares (retail) for QTI chipset

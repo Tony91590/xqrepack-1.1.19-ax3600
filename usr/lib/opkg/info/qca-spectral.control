@@ -1,0 +1,9 @@
+Package: qca-spectral
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl, qca-cfg80211
+Source: package/qca/qca/utils/qca-spectral
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 29034
+Description:  QCA Spectral Analysis

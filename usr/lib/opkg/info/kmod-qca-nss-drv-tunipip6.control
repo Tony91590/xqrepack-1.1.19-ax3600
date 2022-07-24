@@ -1,0 +1,8 @@
+Package: kmod-qca-nss-drv-tunipip6
+Version: 4.4.60+gff73fe5a-dirty-2
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-qca-nss-drv, kmod-iptunnel6, kmod-ip6-tunnel
+Source: package/qca/nss-host/qca-nss-clients
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 8202
+Description:  Kernel driver for NSS (connection manager) - DS-lite and ipip6 Tunnel

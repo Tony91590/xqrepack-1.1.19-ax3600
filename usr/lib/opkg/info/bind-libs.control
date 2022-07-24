@@ -1,0 +1,11 @@
+Package: bind-libs
+Version: 9.11.14-1
+Depends: libc, libopenssl, zlib
+Source: extra/packages/net/bind
+License: MPL-2.0
+LicenseFiles: LICENSE
+Section: libs
+Maintainer: Noah Meyerhans <frodo@morgul.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 982659
+Description:  bind shared libraries

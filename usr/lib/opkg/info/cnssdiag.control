@@ -1,0 +1,9 @@
+Package: cnssdiag
+Version: gff73fe5a-dirty
+Depends: libc, qca-diag, libnl
+Source: package/qca/qca/utils/cnssdiag
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 59257
+Description:  QCA cnssdiag utils

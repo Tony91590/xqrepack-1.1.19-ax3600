@@ -1,0 +1,10 @@
+Package: libuci-lua
+Version: 2018-08-11-1
+Depends: libc, libuci, liblua
+Source: package/utils/uci
+License: LGPL-2.1
+Section: libs
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 6270
+Description:  Lua plugin for UCI

@@ -1,0 +1,7 @@
+/usr/lib/lua/luci/model/cbi/vsftpd/general.lua
+/usr/lib/lua/luci/controller/vsftpd.lua
+/etc/uci-defaults/luci-vsftpd
+/usr/lib/lua/luci/model/cbi/vsftpd/log.lua
+/usr/lib/lua/luci/model/cbi/vsftpd/anonymous.lua
+/usr/lib/lua/luci/model/cbi/vsftpd/item.lua
+/usr/lib/lua/luci/model/cbi/vsftpd/users.lua

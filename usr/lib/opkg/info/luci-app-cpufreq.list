@@ -1,0 +1,5 @@
+/etc/init.d/cpufreq
+/etc/uci-defaults/luci-cpufreq
+/usr/lib/lua/luci/controller/cpufreq.lua
+/usr/lib/lua/luci/model/cbi/cpufreq.lua
+/etc/config/cpufreq

@@ -1,0 +1,10 @@
+Package: libintl-full
+Version: 0.19.8.1-2
+Depends: libc
+Source: package/libs/gettext-full
+License: GPL-3.0+
+Section: libs
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 15949
+Description:  GNU Internationalization library

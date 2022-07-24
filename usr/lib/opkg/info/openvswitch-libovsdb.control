@@ -1,0 +1,11 @@
+Package: openvswitch-libovsdb
+Version: 2.10.1-1
+Depends: libc, librt, libunbound
+Source: extra/packages/net/openvswitch
+License: Apache-2.0
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 80942
+Description:  Open vSwitch (libovsdb.so)

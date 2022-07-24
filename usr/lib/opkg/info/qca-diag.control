@@ -1,0 +1,8 @@
+Package: qca-diag
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread
+Source: package/qca/qca-platform-utils/qca-diag
+Section: QCA
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 64420
+Description:  QCA Linux diag software

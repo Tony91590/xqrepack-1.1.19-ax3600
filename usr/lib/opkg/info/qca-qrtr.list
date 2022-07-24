@@ -1,0 +1,4 @@
+/usr/sbin/qrtr-ns
+/usr/sbin/qrtr-lookup
+/usr/sbin/qrtr-cfg
+/etc/init.d/qrtr

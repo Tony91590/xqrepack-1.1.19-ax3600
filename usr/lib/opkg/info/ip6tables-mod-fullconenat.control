@@ -1,0 +1,11 @@
+Package: ip6tables-mod-fullconenat
+Version: 2020-05-09-869f1460-1
+Depends: libc, ip6tables, kmod-nf-nat6, kmod-ipt-fullconenat, ip6tables-mod-nat, iptables-mod-fullconenat
+Source: package/zjinlin/openwrt-fullconenat
+License: GPL-2.0
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Chion Tang <tech@chionlab.moe>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 2332
+Description:  FULLCONENAT ip6tables extension

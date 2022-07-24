@@ -1,0 +1,10 @@
+Package: miniupnpd
+Version: 2.0.20170421-2
+Depends: libc, iptables, libip4tc, libuuid
+Source: extra/packages/net/miniupnpd
+License: BSD-3-Clause
+Section: net
+Maintainer: Markus Stenberg <fingon@iki.fi>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 54582
+Description:  Lightweight UPnP IGD, NAT-PMP & PCP daemon

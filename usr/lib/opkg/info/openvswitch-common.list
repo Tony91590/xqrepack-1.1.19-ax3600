@@ -1,0 +1,16 @@
+/usr/bin/ovs-vsctl
+/etc/init.d/openvswitch
+/usr/bin/ovsdb-client
+/lib/upgrade/keep.d/openvswitch-common
+/usr/bin/ovs-dpctl
+/usr/bin/ovs-appctl
+/usr/bin/ovs-kmod-ctl
+/usr/share/openvswitch/scripts/ovs-save
+/usr/bin/ovsdb-tool
+/usr/share/openvswitch/scripts/ovs-kmod-ctl
+/usr/share/openvswitch/scripts/ovs-ctl
+/usr/bin/ovs-ctl
+/etc/config/openvswitch
+/usr/share/openvswitch/scripts/ovs-lib
+/usr/bin/ovs-ofctl
+/usr/share/openvswitch/scripts/ovs-ctl-wrapper

@@ -1,0 +1,7 @@
+/lib/modules/4.4.60/nft_masq_ipv6.ko
+/lib/modules/4.4.60/nft_nat.ko
+/lib/modules/4.4.60/nft_chain_nat_ipv4.ko
+/lib/modules/4.4.60/nft_redir_ipv4.ko
+/etc/modules.d/nft-nat
+/lib/modules/4.4.60/nft_masq.ko
+/lib/modules/4.4.60/nft_masq_ipv4.ko

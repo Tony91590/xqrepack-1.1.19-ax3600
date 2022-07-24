@@ -1,0 +1,8 @@
+Package: luci-i18n-vsftpd-zh-cn
+Version: 1.0-3
+Depends: libc, luci-app-vsftpd
+Source: package/lean/luci-app-vsftpd
+Section: luci
+Architecture: all
+Installed-Size: 2221
+Description:  Translation for luci-app-vsftpd - 简体中文 (Simplified Chinese)

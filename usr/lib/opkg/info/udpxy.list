@@ -1,0 +1,4 @@
+/usr/bin/udpxrec
+/usr/bin/udpxy
+/etc/config/udpxy
+/etc/init.d/udpxy

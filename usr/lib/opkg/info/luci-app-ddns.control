@@ -1,0 +1,10 @@
+Package: luci-app-ddns
+Version: 2.4.9-8
+Depends: libc, luci-mod-admin-full, ddns-scripts
+Source: extra/luci/applications/luci-app-ddns
+License: Apache-2.0
+Section: luci
+Maintainer: Ansuel Smith <ansuelsmth@gmail.com>
+Architecture: all
+Installed-Size: 19237
+Description:  LuCI Support for Dynamic DNS Client (ddns-scripts)

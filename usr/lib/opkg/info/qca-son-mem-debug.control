@@ -1,0 +1,9 @@
+Package: qca-son-mem-debug
+Version: gff73fe5a-dirty-1
+Depends: libc
+Source: package/qca/qca-son-mem-debug/qca-son-mem-debug
+Section: QCA
+Maintainer: Qualcomm Atheros, Inc.
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 12392
+Description:  This Package contains the QCA son memory debug

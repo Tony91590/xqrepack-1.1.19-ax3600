@@ -1,0 +1,9 @@
+Package: qca-wpa-supplicant
+Version: gff73fe5a-dirty-1
+Depends: libc, libopenssl, libnl
+Source: package/qca/qca/net/qca-hostap
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 950261
+Description:  WPA Supplicant

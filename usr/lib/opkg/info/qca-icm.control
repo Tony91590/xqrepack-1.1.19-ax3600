@@ -1,0 +1,9 @@
+Package: qca-icm
+Version: gff73fe5a-dirty-1
+Depends: libc, kmod-qca-wifi, libpthread, qca-spectral, libnl
+Source: package/qca/qca/utils/qca-icm
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 102947
+Description:  QCA Intelligent channel manager

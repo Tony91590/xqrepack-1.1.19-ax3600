@@ -1,0 +1,11 @@
+Package: usbutils
+Version: 007-10
+Depends: libc, libusb-1.0, librt, libpthread
+Source: package/utils/usbutils
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 245595
+Description:  USB devices listing utilities

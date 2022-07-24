@@ -1,0 +1,7 @@
+/usr/lib/lua/luci/model/cbi/filetransfer.lua
+/usr/lib/lua/luci/controller/filetransfer.lua
+/usr/lib/lua/luci/view/filetransfer/other_dvalue.htm
+/usr/lib/lua/luci/view/filetransfer/other_upload.htm
+/usr/lib/lua/luci/view/filetransfer/other_button.htm
+/usr/lib/lua/luci/view/filetransfer/other_download.htm
+/etc/uci-defaults/luci-filetransfer

@@ -1,0 +1,9 @@
+Package: ddns-scripts_nsupdate
+Version: 2.7.8-3
+Depends: ddns-scripts, bind-client
+Source: extra/packages/net/ddns-scripts
+License: GPL-2.0
+Section: net
+Architecture: all
+Installed-Size: 1797
+Description:  Dynamic DNS Client scripts extension for direct updates using Bind nsupdate

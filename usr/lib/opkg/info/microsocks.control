@@ -1,0 +1,11 @@
+Package: microsocks
+Version: 1.0.2-2
+Depends: libc, libpthread
+Source: package/lean/microsocks
+License: MIT
+LicenseFiles: COPYING
+Section: net
+Maintainer: lean
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 5179
+Description:  microsocks is a Tiny Proxy in C.

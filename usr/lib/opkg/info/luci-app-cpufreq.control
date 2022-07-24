@@ -1,0 +1,8 @@
+Package: luci-app-cpufreq
+Version: 1-6
+Depends: libc
+Source: package/lean/luci-app-cpufreq
+Section: luci
+Architecture: all
+Installed-Size: 1785
+Description:  LuCI for CPU Freq Setting

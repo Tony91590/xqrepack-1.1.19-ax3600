@@ -1,0 +1,14 @@
+Package: ddns-scripts_route53-v1
+Version: 2.7.8-3
+Depends: ddns-scripts, curl, openssl-util
+Source: extra/packages/net/ddns-scripts
+License: GPL-2.0
+Section: net
+Architecture: all
+Installed-Size: 2632
+Description:  Dynamic DNS Client scripts extension for Amazon AWS Route53. Note: You
+ must also install ca-certificate or ca-bundle.
+ It requires:
+ "option username" to be a valid AWS access key id
+ "option password" to be the matching AWS secret key id
+ "option domain" to contain the hosted zone ID

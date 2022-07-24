@@ -1,0 +1,11 @@
+Package: ttyd
+Version: 1.6.3-3
+Depends: libc, libopenssl, libjson-c, libuv, zlib, libwebsockets-full
+Source: extra/packages/utils/ttyd
+License: MIT
+LicenseFiles: LICENSE
+Section: utils
+Maintainer: Shuanglei Tao <tsl0922@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 198186
+Description:  ttyd is a command-line tool for sharing terminal over the web.

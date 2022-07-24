@@ -1,0 +1,10 @@
+Package: pppdump
+Version: 2.4.7.git-2019-05-25-3
+Depends: libc
+Source: package/network/services/ppp
+License: BSD-4-Clause
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 13173
+Description:  This package contains an utility to read PPP record file.

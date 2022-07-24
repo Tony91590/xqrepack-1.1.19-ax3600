@@ -1,0 +1,9 @@
+Package: ax3600-firwame
+Version: 1
+Depends: libc
+Source: package/qca/wlan_utils/ax3600-firwame
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: all
+Installed-Size: 2892207
+Description:  Firwame for ax3600

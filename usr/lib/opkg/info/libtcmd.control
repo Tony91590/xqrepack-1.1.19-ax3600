@@ -1,0 +1,9 @@
+Package: libtcmd
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl
+Source: package/qca/qca/utils/libtcmd
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 4124
+Description:  QCA libtcmd utils

@@ -1,0 +1,8 @@
+Package: luci-app-arpbind
+Version: 1-2
+Depends: libc, ip-full
+Source: package/zjinlin/luci-app-arpbind
+Section: luci
+Architecture: all
+Installed-Size: 1732
+Description:  ARP Binding

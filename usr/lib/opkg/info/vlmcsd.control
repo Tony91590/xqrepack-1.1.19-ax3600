@@ -1,0 +1,11 @@
+Package: vlmcsd
+Version: svn1113-3
+Depends: libc, libpthread
+Source: package/lean/vlmcsd
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+Maintainer: fuyumi <280604399@qq.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 23854
+Description:  vlmcsd is a KMS Emulator in C.

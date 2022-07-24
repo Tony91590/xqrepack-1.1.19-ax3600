@@ -1,0 +1,11 @@
+Package: kmod-nfnetlink-log
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-nfnetlink
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 6060
+Description:  Kernel modules support for logging packets via NFNETLINK
+ Includes:
+ - NFLOG

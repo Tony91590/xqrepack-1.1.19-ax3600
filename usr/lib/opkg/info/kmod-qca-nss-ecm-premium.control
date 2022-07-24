@@ -1,0 +1,9 @@
+Package: kmod-qca-nss-ecm-premium
+Version: 4.4.60+gff73fe5a-dirty-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-qca-hyfi-bridge, kmod-qca-mcs, kmod-nat46, kmod-l2tp, kmod-pppol2tp, kmod-pptp, kmod-shortcut-fe-drv, kmod-shortcut-fe-cm, kmod-pppoe, kmod-qca-nss-drv, kmod-bonding
+Provides: kmod-qca-nss-ecm
+Source: package/qca/nss-host/qca-nss-ecm
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 275386
+Description:  (with premium features)

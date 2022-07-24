@@ -1,0 +1,10 @@
+Package: vxlan
+Version: 2
+Depends: libc, kmod-vxlan
+Source: package/network/config/vxlan
+License: GPL-2.0
+Section: net
+Maintainer: Matthias Schiffer <mschiffer@universe-factory.net>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 992
+Description:  Virtual eXtensible LAN config support in /etc/config/network.

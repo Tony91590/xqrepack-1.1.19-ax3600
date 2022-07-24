@@ -1,0 +1,2 @@
+/usr/lib/iptables/libipt_FULLCONENAT.so
+/etc/init.d/xt_fullcone

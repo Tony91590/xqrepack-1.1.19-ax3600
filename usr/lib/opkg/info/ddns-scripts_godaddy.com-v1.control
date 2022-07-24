@@ -1,0 +1,9 @@
+Package: ddns-scripts_godaddy.com-v1
+Version: 2.7.8-3
+Depends: ddns-scripts, curl
+Source: extra/packages/net/ddns-scripts
+License: GPL-2.0
+Section: net
+Architecture: all
+Installed-Size: 2767
+Description:  Dynamic DNS Client scripts extension for GoDaddy.com (require/install cURL)

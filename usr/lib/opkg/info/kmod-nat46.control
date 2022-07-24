@@ -1,0 +1,10 @@
+Package: kmod-nat46
+Version: 4.4.60+6-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c)
+Source: package/zjinlin/nat46
+License: GPL-2.0
+Section: kernel
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 18029
+Description:  Stateless NAT46 translation kernel module

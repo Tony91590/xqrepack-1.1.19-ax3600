@@ -1,0 +1,10 @@
+Package: dns2socks
+Version: 2.1-2
+Depends: libc, libpthread
+Source: package/lean/dns2socks
+License: BSD-3-Clause
+Section: net
+Maintainer: ghostmaker
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 10364
+Description:  This is a utility to resolve DNS requests via a SOCKS5 tunnel and caches the answers.

@@ -1,0 +1,10 @@
+Package: rstp
+Version: 2011-10-11-434d24bae108dbb21461a13a4abcf014afa8b029
+Depends: libc, kmod-qca-ssdk-nohnat
+Source: package/qca/networking/rstp
+License: GPLv2
+Section: net
+Maintainer: Stephen Hemminger <shemminger@vyatta.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 56662
+Description:  This package installs the RSTP daemon and tools

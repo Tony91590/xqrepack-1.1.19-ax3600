@@ -1,0 +1,2 @@
+/usr/lib/ddns/update_route53_v1.sh
+/etc/uci-defaults/ddns_route53-v1

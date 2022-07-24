@@ -1,0 +1,4 @@
+/lib/modules/4.4.60/phy-msm-qusb.ko
+/etc/modules.d/45-usb-phy-ipq807x
+/lib/modules/4.4.60/phy-msm-ssusb-qmp.ko
+/etc/modules-boot.d/45-usb-phy-ipq807x

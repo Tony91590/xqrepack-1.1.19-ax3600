@@ -1,0 +1,11 @@
+Package: shadowsocks-libev-ss-server
+Version: 3.3.4-1
+Depends: libc, libev, libmbedtls, libpthread, libsodium, shadowsocks-libev-config, libcares, libpcre
+Source: package/zjinlin/shadowsocks-libev
+License: GPL-3.0-or-later
+LicenseFiles: LICENSE
+Section: net
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 51370
+Description:  shadowsocks-libev ss-server

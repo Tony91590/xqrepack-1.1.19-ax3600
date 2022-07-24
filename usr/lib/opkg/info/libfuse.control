@@ -1,0 +1,13 @@
+Package: libfuse
+Version: 2.9.7-1
+Depends: libc, kmod-fuse, libpthread
+Source: package/utils/fuse
+License: LGPLv2.1 GPLv2
+LicenseFiles: COPYING.LIB COPYING
+Section: libs
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 58776
+Description:  FUSE (Filesystem in UserSpacE)
+ This package contains the FUSE shared libraries, needed by other programs.
+ - libfuse
+ - libulockmgr

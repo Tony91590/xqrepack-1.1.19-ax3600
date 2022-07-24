@@ -1,0 +1,8 @@
+Package: luci-i18n-ssr-plus-zh-cn
+Version: 184-10
+Depends: libc, luci-app-ssr-plus
+Source: package/lean/helloworld/luci-app-ssr-plus
+Section: luci
+Architecture: all
+Installed-Size: 6549
+Description:  Translation for luci-app-ssr-plus - 简体中文 (Simplified Chinese)

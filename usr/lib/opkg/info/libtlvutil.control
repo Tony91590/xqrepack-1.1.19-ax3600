@@ -1,0 +1,9 @@
+Package: libtlvutil
+Version: gff73fe5a-dirty-1
+Depends: libc, libpthread, libnl
+Source: package/qca/qca/utils/libtlvutil
+Section: QTI
+Maintainer: Qualcomm Technologies, Inc
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 11821
+Description:  QTI libtlvutil utils

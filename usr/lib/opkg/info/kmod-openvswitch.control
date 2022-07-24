@@ -1,0 +1,12 @@
+Package: kmod-openvswitch
+Version: 4.4.60+2.10.1-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-lib-crc32c, kmod-mpls, kmod-nf-nat, kmod-nf-nat6, kmod-nf-conntrack, kmod-nf-conntrack6
+Provides: kmod-openvswitch
+Source: extra/packages/net/openvswitch
+License: Apache-2.0
+LicenseFiles: LICENSE
+Section: kernel
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 43018
+Description:  Open vSwitch kernel datapath (upstream)

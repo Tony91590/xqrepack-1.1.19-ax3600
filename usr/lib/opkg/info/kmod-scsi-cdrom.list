@@ -1,0 +1,3 @@
+/lib/modules/4.4.60/sr_mod.ko
+/etc/modules.d/45-scsi-cdrom
+/lib/modules/4.4.60/cdrom.ko

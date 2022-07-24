@@ -1,0 +1,11 @@
+Package: libnetfilter-queue
+Version: 2016-07-03-981025e1-1
+Depends: libc, libmnl, libnfnetlink
+Source: package/libs/libnetfilter-queue
+License: GPL-2.0+
+Section: libs
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 8069
+Description:  libnetfilter_queue is a userspace library providing a programming
+ interface (API) to the in-kernel connection tracking state table.
+ This library is currently used by conntrack-tools.

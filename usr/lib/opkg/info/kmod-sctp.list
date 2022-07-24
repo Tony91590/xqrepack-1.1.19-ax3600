@@ -1,0 +1,2 @@
+/lib/modules/4.4.60/sctp.ko
+/etc/modules.d/32-sctp

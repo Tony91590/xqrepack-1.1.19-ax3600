@@ -1,0 +1,8 @@
+Package: luci-i18n-arpbind-zh-cn
+Version: 1-2
+Depends: libc, luci-app-arpbind
+Source: package/zjinlin/luci-app-arpbind
+Section: luci
+Architecture: all
+Installed-Size: 586
+Description:  Translation for luci-app-arpbind - 简体中文 (Simplified Chinese)

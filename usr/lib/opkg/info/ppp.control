@@ -1,0 +1,10 @@
+Package: ppp
+Version: 2.4.7.git-2019-05-25-3
+Depends: libc, shellsync, chat
+Source: package/network/services/ppp
+License: BSD-4-Clause
+Section: net
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 109597
+Description:  This package contains the PPP (Point-to-Point Protocol) daemon.

@@ -1,0 +1,11 @@
+Package: pppossh
+Version: 2
+Depends: libc, ppp, resolveip
+Source: extra/packages/net/pppossh
+License: GPLv2
+Section: net
+Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 977
+Description:  This package adds protocol support for PPP over SSH.  The protocol name is
+ 'pppossh' as in netifd interface config option 'proto'.

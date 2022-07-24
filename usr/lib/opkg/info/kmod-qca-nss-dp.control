@@ -1,0 +1,8 @@
+Package: kmod-qca-nss-dp
+Version: 4.4.60+gff73fe5a-dirty-1
+Depends: kernel (=4.4.60-1-848d8032804d105f1c74134021121b1c), kmod-qca-ssdk-nohnat
+Source: package/qca/nss-host/qca-nss-dp
+Section: kernel
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 18851
+Description:  Kernel driver for NSS data plane

@@ -1,0 +1,9 @@
+Package: qca-wifison-ext-lib
+Version: gff73fe5a-dirty-1
+Depends: libc, libnl
+Source: package/qca/qca-lib/qca-wifison-ext-lib
+Section: QCA
+Maintainer: Qualcomm Atheros, Inc.
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 9714
+Description:  Wifison Event Functionality Library

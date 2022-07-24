@@ -1,0 +1,9 @@
+Package: luci-i18n-wireguard-zh-cn
+Version: git-20.085.19816-df13074-1
+Depends: libc, luci-app-wireguard
+Source: extra/luci/applications/luci-app-wireguard
+Section: luci
+Maintainer: Dan Luedtke <mail@danrl.com>
+Architecture: all
+Installed-Size: 922
+Description:  Translation for luci-app-wireguard - 简体中文 (Simplified Chinese)

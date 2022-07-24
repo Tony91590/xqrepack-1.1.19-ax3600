@@ -1,0 +1,9 @@
+Package: qca-hostap-macsec
+Version: gff73fe5a-dirty-1
+Depends: libc, kmod-qca-nss-macsec, librt, libnl, libopenssl
+Source: package/qca/qca/net/qca-hostap
+Section: QCA
+Maintainer: Qualcomm Atheros
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 678885
+Description:  Hostap authenticator (MACSEC)

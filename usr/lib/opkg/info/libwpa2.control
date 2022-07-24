@@ -1,0 +1,9 @@
+Package: libwpa2
+Version: gff73fe5a-dirty-1
+Depends: libc, qca-son-mem-debug
+Source: package/qca/ieee1905-security/qca-ieee1905-security-config/libwpa2
+Section: QCA
+Maintainer: Qualcomm Atheros, Inc.
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 38142
+Description:  This Package contains the wpa2 library

@@ -1,0 +1,8 @@
+Package: luci-i18n-ttyd-zh-cn
+Version: 1.0-3
+Depends: libc, luci-app-ttyd
+Source: package/lean/luci-app-ttyd
+Section: luci
+Architecture: all
+Installed-Size: 422
+Description:  Translation for luci-app-ttyd - 简体中文 (Simplified Chinese)

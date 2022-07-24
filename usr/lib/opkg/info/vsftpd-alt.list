@@ -1,0 +1,6 @@
+/etc/config/vsftpd
+/usr/sbin/vsftpd_wrapper
+/usr/sbin/vsftpd_prepare
+/usr/sbin/vsftpd
+/lib/upgrade/keep.d/vsftpd-alt
+/etc/init.d/vsftpd

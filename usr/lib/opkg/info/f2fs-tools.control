@@ -1,0 +1,10 @@
+Package: f2fs-tools
+Version: 1.12.0-3
+Depends: libc, libf2fs, mkf2fs, f2fsck
+Source: package/utils/f2fs-tools
+License: GPL-2.0
+Section: utils
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_cortex-a53+crypto
+Installed-Size: 7041
+Description:  Tools for Flash-Friendly File System (F2FS)
