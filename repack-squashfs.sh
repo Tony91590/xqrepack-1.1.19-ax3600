@@ -38,6 +38,22 @@ rm -f $FSDIR/usr/*
 rm -f $FSDIR/www/*
 rm -f $FSDIR/var/*
 
+cp -R bin/* "$FSDIR/bin/"
+cp -R data/* "$FSDIR/data/"
+cp -R dev/* "$FSDIR/dev/"
+cp -R etc/* "$FSDIR/etc/"
+cp -R ini/* "$FSDIR/ini/"
+cp -R mnt/* "$FSDIR/mnt/"
+cp -R overlay/* "$FSDIR/overlay/"
+cp -R proc/* "$FSDIR/proc/"
+cp -R rom/* "$FSDIR/rom/"
+cp -R usr/* "$FSDIR/usr/"
+cp -R www/* "$FSDIR/www/"
+cp -R init/* "$FSDIR/init/"
+cp -R lib64/* "$FSDIR/lib64/"
+cp -R var/* "$FSDIR/var/"
+
+
 
 
 
