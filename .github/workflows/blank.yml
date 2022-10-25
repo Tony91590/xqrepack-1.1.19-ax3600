@@ -25,52 +25,6 @@ jobs:
       
     - uses: actions/upload-artifact@v2
       with:
-        name: miwifi_r3600_firmware_025ef_1.1.12+SSH+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_025ef_1.1.12+SSH+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_025ef_1.1.12+SSH+MI+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_025ef_1.1.12+SSH+MI+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_025ef_1.1.12+SSH+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_025ef_1.1.12+SSH+opt+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_025ef_1.1.12+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_025ef_1.1.12+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}.bin
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_02d97_1.1.15+SSH+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_02d97_1.1.15+SSH+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_02d97_1.1.15+SSH+MI+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_02d97_1.1.15+SSH+MI+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_02d97_1.1.15+SSH+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_02d97_1.1.15+SSH+opt+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_02d97_1.1.15+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_02d97_1.1.15+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}.bin
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_aba17_1.1.19+SSH+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_aba17_1.1.19+SSH+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_aba17_1.1.19+SSH+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_aba17_1.1.19+SSH+opt+${{ env.FIRMWARE_SLUG }}.bin
-    - uses: actions/upload-artifact@v2
-      with:
-        name: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+opt+${{ env.FIRMWARE_SLUG }}.bin
-
+        name: miwifi_r3600_firmware_025ef_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}
+        path: miwifi_r3600_firmware_025ef_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}.bin
+    
