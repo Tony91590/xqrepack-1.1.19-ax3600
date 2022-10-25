@@ -2,11 +2,8 @@ FIRMWARES:=$(shell cd orig-firmwares; ls *.bin | sed 's/\.bin$$//')
 
 FIRMWARE_SLUG?=txpwr
 
-TARGETS_SSH:=$(patsubst %,%+SSH+$(FIRMWARE_SLUG).bin,$(FIRMWARES))
 TARGETS_SSH_MI:=$(patsubst %,%+SSH+MI+$(FIRMWARE_SLUG).bin,$(FIRMWARES))
-TARGETS_SSH_MI_OPT:=$(patsubst %,%+SSH+MI+opt+$(FIRMWARE_SLUG).bin,$(FIRMWARES))
-TARGETS_SSH_OPT:=$(patsubst %,%+SSH+opt+$(FIRMWARE_SLUG).bin,$(FIRMWARES))
-TARGETS:=$(shell echo $(TARGETS_SSH) $(TARGETS_SSH_MI) $(TARGETS_SSH_MI_OPT) $(TARGETS_SSH_OPT) | sed 's/ /\n/g' | sort)
+TARGETS:=$(shell echo $(TARGETS_SSH_MI) | sed 's/ /\n/g' | sort)
 
 all: $(TARGETS)
 
