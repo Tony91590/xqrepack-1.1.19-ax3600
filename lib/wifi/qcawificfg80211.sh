@@ -1,4 +1,4 @@
-﻿#
+#
 # Copyright (c) 2017-2018 Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
@@ -3754,21 +3754,16 @@ config wifi-device  wifi$devidx
 	option macaddr	$(cat /sys/class/net/${dev}/address)
 	option hwmode	11${mode_11}
 	option htmode	'${htmode}'
-	option country	'FR'
+	option country	'$country_code'
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
 EOF
-	if [ $devidx = 1 ]; then
+	if [ $devidx = 2 ]; then
 		cat <<EOF
 	option bw 20
 EOF
 	fi
-    if [ $devidx = 0 ]; then
-        cat <<EOF
-    option bw 160
-EOF
-    fi
 	cat <<EOF
 
 config wifi-iface
@@ -3783,7 +3778,7 @@ config wifi-iface
 EOF
 	if [ $devidx = 0 ]; then
 		cat <<EOF
-	option channel_block_list '52,56,60,64'
+	option channel_block_list '36,40,44,48,52,56,60,64'
 EOF
 	fi
 	devidx=$(($devidx + 1))
