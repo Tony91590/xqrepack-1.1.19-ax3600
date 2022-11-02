@@ -3758,10 +3758,21 @@ config wifi-device  wifi$devidx
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
+	option ax '1'
 EOF
 	if [ $devidx = 2 ]; then
 		cat <<EOF
 	option bw 20
+EOF
+	fi
+	if [ $devidx = 1 ]; then
+		cat <<EOF
+	option bw 20
+EOF
+	fi
+	if [ $devidx = 0 ]; then
+		cat <<EOF
+	option bw 80
 EOF
 	fi
 	cat <<EOF
