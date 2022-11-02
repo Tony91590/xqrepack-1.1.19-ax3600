@@ -3709,12 +3709,12 @@ detect_qcawificfg80211() {
 	radioidx=$devidx
 	ssid=`nvram get wl${radioidx}_ssid`
 	if [ $devidx = 0 ]; then
-		htmode=HT80
+		htmode=HT160
 		mode=ap
 		network=lan
 		disable=0
 	elif [ $devidx = 1 ]; then
-		htmode=HT40
+		htmode=HT20
 		mode=ap
 		network=lan
 		disable=0
@@ -3758,7 +3758,6 @@ config wifi-device  wifi$devidx
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
-	option ax '1'
 EOF
 	if [ $devidx = 2 ]; then
 		cat <<EOF
@@ -3772,7 +3771,7 @@ EOF
 	fi
 	if [ $devidx = 0 ]; then
 		cat <<EOF
-	option bw 80
+	option bw 160
 EOF
 	fi
 	cat <<EOF
