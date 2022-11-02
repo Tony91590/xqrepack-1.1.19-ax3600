@@ -3788,7 +3788,7 @@ config wifi-iface
 EOF
 	if [ $devidx = 0 ]; then
 		cat <<EOF
-	option channel_block_list '36,40,44,48,52,56,60,64'
+	option channel_block_list '52,56,60,64,100,104,108,112,116,120,124,128,132,136,140,144,165'
 EOF
 	fi
 	devidx=$(($devidx + 1))
