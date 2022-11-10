@@ -114,9 +114,6 @@ sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 # copy the latest firmware 
 cp -R etc/* "$FSDIR/etc/"
 
-# copy the latest firmware of wifi
-cp -R lib/* "$FSDIR/lib/"
-
 # replace luci from international firmware
 cp -R lua/* "$FSDIR/usr/lib/lua/"
 
