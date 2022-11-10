@@ -124,6 +124,14 @@ else
     (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
 fi
 
+# apply patches
+[ -d patches ] && for p in patches/*.patch; do
+	>&2 echo "applying patch $p..."
+	patch -d "$FSDIR" -s -p1 < $p
+
+	[ $? -ne 0 ] && { echo "patch $p didnt apply cleanly - aborting."; exit 1; }
+done
+
 # remove pre-selected DNS option
 export DNS="                    <option value="2"><%:花生壳（oray.com）%></option>"
 sed -i '98s|.*|'"$DNS"'|' $FSDIR/usr/lib/lua/luci/view/web/setting/ddns.htm
