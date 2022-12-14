@@ -2977,12 +2977,12 @@ enable_qcawificfg80211() {
 
 		# for miwifi
 		if [ "$bdmode" = "24G" ]; then
-			max_power=30
+			max_power=14
 			wifitool "$ifname" setUnitTestCmd 67 3 16 1 1
 			iwpriv "$ifname" 11ngvhtintop 1
 			iwpriv "$ifname" enablertscts 0x21
 		else
-			max_power=30
+			max_power=23
 		fi
 
 		config_get txpwr "$device" txpwr
