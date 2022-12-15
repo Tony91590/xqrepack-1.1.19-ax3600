@@ -34,17 +34,17 @@ parse_json()
 # check if we are in xiaomi net.
 # return 0: not in xiaomi
 # return 1: in xiaomi
-# return 2: check failed, api.miwfi.com unreachble or matool failed.
+# return 2: check failed, google.com unreachble or matool failed.
 check_wanip_status()
 {
-    # wait 5s, check if api.miwifi.com ping OK ?
-    ping api.miwifi.com -c 3 -w 5 > /dev/null 2>&1
+    # wait 5s, check if google.com ping OK ?
+    ping google.com -c 3 -w 5 > /dev/null 2>&1
     if [ $? != 0 ]
     then
-        wanip_check_log "ping api.miwifi.com failed, check later !"
+        wanip_check_log "ping google.com failed, check later !"
         return 2;
     else
-        wanip_check_log "ping api.miwifi.com ok, do check !"
+        wanip_check_log "ping google.com ok, do check !"
     fi;
 
     # get default MAC
