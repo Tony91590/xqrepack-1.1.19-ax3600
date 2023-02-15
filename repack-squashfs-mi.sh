@@ -38,7 +38,6 @@ sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/foote
 
 # stop resetting root password
 sed -i '/set_user(/a return 0' "$FSDIR/etc/init.d/system"
-sed -i 's/flg_init_pwd=.*/flg_init_pwd=0/' "$FSDIR/etc/init.d/boot_check"
 
 # make sure our backdoors are always enabled by default
 sed -i '/ssh_en/d;' "$FSDIR/usr/share/xiaoqiang/xiaoqiang-reserved.txt"
@@ -79,6 +78,7 @@ chown root:root "$FSDIR/sbin/xqflash"
 for SVC in stat_points statisticsservice \
 		datacenter \
 		smartcontroller \
+		wan_check \
 		plugincenter plugin_start_script.sh cp_preinstall_plugins.sh; do
 	rm -f $FSDIR/etc/rc.d/[SK]*$SVC
 done
@@ -88,9 +88,7 @@ for f in StatPoints mtd_crash_log logupload.lua otapredownload wanip_check.sh; d
 
 rm -f $FSDIR/etc/hotplug.d/iface/*wanip_check
 
-for f in wan_check messagingagent.sh; do
-	sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/$f
-done
+sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
 
 # cron jobs are mostly non-OpenWRT stuff
 for f in $FSDIR/etc/crontabs/*; do
@@ -100,13 +98,12 @@ done
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
-# apply patches
-[ -d patches ] && for p in patches/*.patch; do
-	>&2 echo "applying patch $p..."
-	patch -d "$FSDIR" -s -p1 < $p
-
-	[ $? -ne 0 ] && { echo "patch $p didnt apply cleanly - aborting."; exit 1; }
-done
+# apply patch from xqrepack repository
+if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
+else
+    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
+fi
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
