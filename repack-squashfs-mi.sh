@@ -84,9 +84,13 @@ for SVC in stat_points statisticsservice \
 done
 
 # prevent stats phone home & auto-update
-for f in StatPoints mtd_crash_log logupload.lua otapredownload; do > $FSDIR/usr/sbin/$f; done
+for f in StatPoints mtd_crash_log logupload.lua otapredownload wanip_check.sh; do > $FSDIR/usr/sbin/$f; done
 
-sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/messagingagent.sh
+rm -f $FSDIR/etc/hotplug.d/iface/*wanip_check
+
+for f in wan_check messagingagent.sh; do
+	sed -i '/start_service(/a return 0' $FSDIR/etc/init.d/$f
+done
 
 # cron jobs are mostly non-OpenWRT stuff
 for f in $FSDIR/etc/crontabs/*; do
@@ -96,15 +100,24 @@ done
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
-# apply patch from xqrepack repository
-if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
-else
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
-fi
+# get hardware name
+HWNAME=`sed -n "/option\s\+HARDWARE/ s/.*'\(.*\)'/\1/g p" $FSDIR/usr/share/xiaoqiang/xiaoqiang_version`
+[ -n "$HWNAME" ] && echo "detected hw $HWNAME" || echo "[WARN] cant find hw name in firmware"
 
-# firmware wifi update 
-cp -R lib/* "$FSDIR/lib/"
+# apply hw-specific patches
+PATCHES=
+[ -n "$HWNAME" ] && [ -d "patches-$HWNAME" ] && PATCHES=patches-$HWNAME/*.patch
+
+# generic patches
+[ -d patches ] && PATCHES="$PATCHES patches/*.patch"
+
+# apply patches
+for p in $PATCHES; do
+	>&2 echo "applying patch $p..."
+	patch -d "$FSDIR" -s -p1 < $p
+
+	[ $? -ne 0 ] && { echo "patch $p didnt apply cleanly - aborting."; exit 1; }
+done
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
