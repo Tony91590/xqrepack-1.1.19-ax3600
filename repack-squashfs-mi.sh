@@ -37,6 +37,15 @@ cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
 chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 
+# copy the latest firmware of wifi
+cp -R lib/* "$FSDIR/lib/"
+
+# replace luci from international firmware
+cp -R lua/* "$FSDIR/usr/lib/lua/"
+
+# led wan check on
+cp -R etc/* "$FSDIR/etc/"
+
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
 sed -i 's/flg_ssh=.*/flg_ssh=1/' "$FSDIR/etc/init.d/dropbear"
@@ -122,12 +131,6 @@ fi
 
 	[ $? -ne 0 ] && { echo "patch $p didnt apply cleanly - aborting."; exit 1; }
 done
-
-# firmware wifi update 
-cp -R lib/* "$FSDIR/lib/"
-
-# led wan check on
-cp -R etc/* "$FSDIR/etc/"
 
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
