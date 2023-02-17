@@ -96,8 +96,8 @@ config func 'ant_on'
 
 config func 'link_down'
     option nled     'func'
-    option color    'blue'      
-    option trigger  'on'
+    option color    'black'      # turn off
+    option trigger  'off'
     option priority '5'
 
 config func 'link_conning'
