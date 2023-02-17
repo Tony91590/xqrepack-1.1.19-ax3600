@@ -29,6 +29,14 @@ unsquashfs -f -d "$FSDIR" "$IMG"
 
 >&2 echo "patching squashfs..."
 
+# add global firmware language packages
+cp -R ./language-packages/opkg-info/. $FSDIR/usr/lib/opkg/"info"
+cp -R ./uci-defaults/. $FSDIR/etc/uci-defaults
+cp -R ./base-translation/. $FSDIR/usr/lib/lua/luci/i18n
+cat ./language-packages/languages.txt >>$FSDIR/usr/lib/opkg/status
+chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
+chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
+
 # modify dropbear init
 sed -i 's/channel=.*/channel=release2/' "$FSDIR/etc/init.d/dropbear"
 sed -i 's/flg_ssh=.*/flg_ssh=1/' "$FSDIR/etc/init.d/dropbear"
