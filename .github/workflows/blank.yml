@@ -11,7 +11,7 @@ jobs:
     - name: Set the value
       run: |
         echo "FIRMWARE_SLUG=$(echo $GITHUB_REF | cut -d/ -f3)" >> $GITHUB_ENV
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: apt update
       run: sudo apt update
     - name: apt install
@@ -23,7 +23,7 @@ jobs:
     - name: make
       run: make
       
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}
         path: miwifi_r3600_firmware_aba17_1.1.19+SSH+MI+${{ env.FIRMWARE_SLUG }}.bin
