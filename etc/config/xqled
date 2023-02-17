@@ -38,12 +38,12 @@ config led ant
 #             MAX -> MIN : 7 - 1, temp reserve
 config func 'sys_booting'
     option nled     'sys'
-    option color    'yellow'
+    option color    'blue'
     option trigger  'on'
     option priority '7'
 
 config func 'sys_ok'
-    option nled     'sys'
+    option nled     'func'
     option color    'blue'
     option trigger  'on'
     option priority '1'
