@@ -6,7 +6,6 @@ local features = require("xiaoqiang.XQFeatures").FEATURES
 local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
 local hardware = string.lower( XQSysUtil.getHardware() )
 
-
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
@@ -16,32 +15,13 @@ local netmod = XQFunction.getnetmode()
 --3 mesh从设备  whc_re
 --0 router
 
-local meshcap = XQFunction.isMeshCap()
-local isMesh = (netmod == 3 or netmod == 4) and true  or  false
+local capmode = XQFunction.getCAPMode()
+
 %>
-<div class="mod-upgrade" data="<%=netmod%>">
+<div class="mod-upgrade">
     <div class="hd"><h3><%:升级检测%></h3></div>
-<!--    暂时不做判断mesh都显示 下面的普通路由器的功能-->
-<!--    < isMesh >-->
-<!--    <div class="bd bd-01" id="meshUpgrade">-->
-<!--         <div class="one div1 clearfix">-->
-<!--            <div class="left">-->
-<!--                 <img class="icon-d01" src="/xiaoqiang/web/img/icons/router_d01_101_on.png">-->
-<!--                 <img class="icon-internet" src="/xiaoqiang/web/img/icons/icon_internet_on.png">-->
-<!--            </div>-->
-<!--            <div class="left left-item">-->
-<!--                <p id="blue">&#45;&#45;</p>-->
-<!--                 <p class="upgradeinfo"></p>-->
-<!--                  <a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btnUpgread btn btn-primary btn-l left">-->
-<!--                     <span><%:立即升级%></span>-->
-<!--                  </a>-->
-<!--                <a href="#" class="btnUpload btn btn-dft btn-l right">-->
-<!--                    <span><%:手动升级%></span>-->
-<!--                 </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--     <else>-->
+    <!--    暂时不做判断mesh都显示 下面的普通路由器的功能-->
+
     <div class="bd">
             <h4><%:系统版本%></h4>
             <p id="upgradeinfo"></p>
@@ -55,7 +35,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
             </div>
         </div>
     </div>
-<!--    <end>-->
+
 
 <div class="mod-uploadlog">
     <div class="hd">
@@ -78,8 +58,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
     </div>
 </div>
 
- <%if (netmod ~= 1 and netmod ~= 2 and netmod ~= 3 and netmod ~=4) then%>
-<div class="mod-set mod-backupconfig">
+<div class="mod-set mod-backupconfig" style="display:none">
     <div class="hd">
         <h3><%:备份与恢复%></h3>
     </div>
@@ -92,7 +71,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
         </div>
     </div>
 </div>
-<%end%>
+
 
 <%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
 <div class="mod-uploadlog">
@@ -129,7 +108,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
         <h3><%:地区与时间%></h3>
     </div>
 
-    <%if meshcap then%>
+    <%if netmod == 4 or capmode == 1 then%>
      <!-- 主mesh -->
     <div class="bd" id="zhumesh"  style="display:none">
         <div class="group" >
@@ -142,6 +121,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 
     </div>
     <%elseif netmod == 3 then%>
+    <!-- 子mesh -->
     <div class="bd" id="zimesh" style="display:none">
         <div class="group">
             <p>当前系统时间：<span id="datetiemval2"></span></p>
@@ -164,5 +144,4 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
     </div>
 
     <%end%>
-
 </div>
