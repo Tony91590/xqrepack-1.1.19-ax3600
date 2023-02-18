@@ -5,5 +5,5 @@ Source: feeds/luci/luci
 Section: luci
 Maintainer: LuCI Development Team <luci@lists.subsignal.org>
 Architecture: aarch64_cortex-a53
-Installed-Size: 40720
+Installed-Size: 42640
 Description:  English
