@@ -117,11 +117,8 @@ done
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 
 # apply patch from xqrepack repository
-if echo "$IMG" | rev | cut -d '/' -f2 | rev | grep -Eq '^miwifi_ra70_'; then
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface-ra70.patch
-else
-    (cd "$FSDIR" && patch -p1 --no-backup-if-mismatch) < 0001-Add-TX-power-in-dBm-options-in-web-interface.patch
-fi
+find patches -type f -exec bash -c "(cd "$FSDIR" && patch -p1) < {}" \;
+find patches -type f -name \*.orig -delete
 
 # apply patches
 [ -d patches ] && for p in patches/*.patch; do
