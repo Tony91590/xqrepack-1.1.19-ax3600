@@ -120,14 +120,6 @@ sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 find patches -type f -exec bash -c "(cd "$FSDIR" && patch -p1) < {}" \;
 find patches -type f -name \*.orig -delete
 
-# apply patches
-[ -d patches ] && for p in patches/*.patch; do
-	>&2 echo "applying patch $p..."
-	patch -d "$FSDIR" -s -p1 < $p
-
-	[ $? -ne 0 ] && { echo "patch $p didnt apply cleanly - aborting."; exit 1; }
-done
-
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
 mksquashfs "$FSDIR" "$IMG.new" -comp xz -b 256K -no-xattrs
