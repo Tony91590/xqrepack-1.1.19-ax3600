@@ -1,6 +1,6 @@
 config upnpd config
 	option enable_natpmp	1
-	option disable_upnp	1
+	option enable_upnp	1
 	option secure_mode	0
 	option log_output	0
 	option download 	1024
