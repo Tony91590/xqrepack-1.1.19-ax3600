@@ -294,7 +294,7 @@ $.sub( 'upgrade:check', function() {
 
     $( '#upgradeinfo' ).html( tplChecking.tmpl( {
         romVersion: '<em class="em"><%=romVersion%></em>',
-        ret: '<%:正在检测更新，请稍候...%>'
+        ret: '<%:你的版本是最新的，无需升级。%>'
     } ) );
 
     //topo
@@ -385,7 +385,7 @@ $.sub( 'upgrade:check', function() {
         } else {
             $( '#upgradeinfo,.upgradeinfo' ).html( tplChecking.tmpl( {
                 romVersion: '<em class="em"><%=romVersion%></em>',
-                ret: '<%:检查失败，网络繁忙请刷新页面重试。%>'
+                ret: '<%:你的版本是最新的，无需升级。%>'
             } ) );
         }
     });
