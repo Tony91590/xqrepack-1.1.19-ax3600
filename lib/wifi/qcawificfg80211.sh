@@ -884,6 +884,7 @@ enable_qcawificfg80211() {
 	local recover="$2"
 	local hk_ol_num=0
 	local hwcaps
+	local bd_country_code=`bdata get CountryCode`
 	local board_name
 	[ -f /tmp/sysinfo/board_name ] && {
 		board_name=$(cat /tmp/sysinfo/board_name)
@@ -2977,12 +2978,12 @@ enable_qcawificfg80211() {
 
 		# for miwifi
 		if [ "$bdmode" = "24G" ]; then
-			max_power=14
+			max_power=30
 			wifitool "$ifname" setUnitTestCmd 67 3 16 1 1
 			iwpriv "$ifname" 11ngvhtintop 1
 			iwpriv "$ifname" enablertscts 0x21
 		else
-			max_power=23
+			max_power=30
 		fi
 
 		config_get txpwr "$device" txpwr
@@ -3669,7 +3670,7 @@ detect_qcawificfg80211() {
 
 	local enable_cfg80211=`uci show qcacfg80211.config.enable |grep "qcacfg80211.config.enable='0'"`
 	[ -n "$enable_cfg80211" ] && echo "qcawificfg80211 configuration is disable" > /dev/console && return 1;
-
+        local bd_country_code=`bdata get CountryCode`
 	is_ftm=`cat /proc/xiaoqiang/ft_mode`
 	[ $is_ftm = 1 ] && ftm_qcawificfg80211 &&  return
 
@@ -3854,7 +3855,7 @@ config wifi-device  wifi$devidx
 	option macaddr	$(cat /sys/class/net/${dev}/address)
 	option hwmode	11${mode_11}
 	option htmode	'${htmode}'
-	option country	'$country_code'
+	option country	'$bd_country_code'
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
