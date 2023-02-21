@@ -2440,7 +2440,7 @@ Installed-Time: 1625726934
 Auto-Installed: yes
 
 Package: qca-wifi-hk-fw-hw1-10.4-asic
-Version: WLAN.HK.2.3.r2-00064-QCAHKSWPL_SILICONZ-3-1
+Version: WLAN.HK.2.0-01692-QCAHKSWPL_SILICONZ-1-1
 Depends: libc
 Status: install user installed
 Architecture: all
