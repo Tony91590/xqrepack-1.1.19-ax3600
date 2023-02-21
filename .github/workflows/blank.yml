@@ -25,6 +25,6 @@ jobs:
       
     - uses: actions/upload-artifact@v3
       with:
-        name: miwifi_r3600_firmware_aba17_1.1.19+SSH+${{ env.FIRMWARE_SLUG }}
-        path: miwifi_r3600_firmware_aba17_1.1.19+SSH+${{ env.FIRMWARE_SLUG }}.bin
+        name: miwifi_r3600_firmware_aba17_1.1.19+SSH${{ env.FIRMWARE_SLUG }}
+        path: miwifi_r3600_firmware_aba17_1.1.19+SSH${{ env.FIRMWARE_SLUG }}.bin
     
