@@ -1,0 +1,57 @@
+From f94339b4e5f8ea58faa35577ce474041a4ad6163 Mon Sep 17 00:00:00 2001
+From: Alexander Georgievskiy <galeksandrp@gmail.com>
+
+diff --git a/usr/lib/lua/luci/view/web/inc/sysinfo.htm b/usr/lib/lua/luci/view/web/inc/sysinfo.htm
+index 346b8a2..192bb2f 100755
+--- a/usr/lib/lua/luci/view/web/inc/sysinfo.htm
++++ b/usr/lib/lua/luci/view/web/inc/sysinfo.htm
+@@ -94,7 +94,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
+ </div>
+ <%end%>
+ 
+-<%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
++<%if romChannel == "release"  then%>
+ <div class="mod-uploadlog">
+     <div class="hd">
+         <h3><%:设置系统语言%></h3>
+diff --git a/usr/lib/lua/luci/view/web/inc/sysinfo_ap.htm b/usr/lib/lua/luci/view/web/inc/sysinfo_ap.htm
+index 96152aa..65e9478 100755
+--- a/usr/lib/lua/luci/view/web/inc/sysinfo_ap.htm
++++ b/usr/lib/lua/luci/view/web/inc/sysinfo_ap.htm
+@@ -73,7 +73,7 @@ local capmode = XQFunction.getCAPMode()
+ </div>
+ 
+ 
+-<%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
++<%if romChannel == "release"  then%>
+ <div class="mod-uploadlog">
+     <div class="hd">
+         <h3><%:设置系统语言%></h3>
+diff --git a/usr/lib/lua/luci/view/web/inc/wifi.html b/usr/lib/lua/luci/view/web/inc/wifi.html
+index 02bcdb0..fc524c8 100644
+--- a/usr/lib/lua/luci/view/web/inc/wifi.html
++++ b/usr/lib/lua/luci/view/web/inc/wifi.html
+@@ -79,7 +79,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
+         <!-- <%include("web/inc/guestwifi")%> -->
+         <!-- <%end%> -->
+ <!-- end -->
+-    <%if romChannel == "release" and features["system"]["i18n"] == "1" then%>
++    <%if romChannel == "release" then%>
+         <div class="mod-set mod-countrycode">
+             <div class="hd">
+                 <h3><%:无线网络所在区域%></h3>
+diff --git a/usr/lib/lua/luci/view/web/setting/wifi.htm b/usr/lib/lua/luci/view/web/setting/wifi.htm
+index 4bb412a..5f082fb 100755
+--- a/usr/lib/lua/luci/view/web/setting/wifi.htm
++++ b/usr/lib/lua/luci/view/web/setting/wifi.htm
+@@ -88,7 +88,7 @@ local capmode = XQFunction.getCAPMode()
+         <!-- <%include("web/inc/guestwifi")%> -->
+         <!-- <%end%> -->
+ <!-- end -->
+-    <%if romChannel == "release" and features["system"]["i18n"] == "1" and ccode ~= "US" then%>
++    <%if romChannel == "release" and ccode ~= "US" then%>
+         <div class="mod-set mod-countrycode">
+             <div class="hd">
+                 <h3><%:无线网络所在区域%></h3>
+-- 
+2.32.0
