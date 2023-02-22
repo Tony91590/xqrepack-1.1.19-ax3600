@@ -1,7 +1,6 @@
 #!/bin/sh
 uci batch <<-EOF
 	set luci.languages.en=English
-        set wireless.wifi*.country='EN'
         commit luci
 EOF
 
