@@ -1,5 +1,5 @@
 config system
-	option hostname	xqrepack 
+	option hostname	Mirouter 
 	option timezone	UTC
 	option log_size	64
 
