@@ -113,11 +113,11 @@ for f in $FSDIR/etc/crontabs/*; do
 	sed -i 's/^/#/' $f
 done
 
-# as a last-ditch effort, change the *.miwifi.com hostnames to localhost
+# as a last-ditch effort, change the *.miwifi.com hostnames 
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
 sed -i 's@\w\miwifi.com@mirouter.com@g' $FSDIR/etc/nginx/miwifi-webinitrd-https.conf
 sed -i 's@\w\miwifi.com@mirouter.com@g' $FSDIR/etc/nginx/miwifi-webinitrd.conf
-sed -i 's@\w\miwifi.com@mirouter.com@g' $FSDIR/etc/nginx/miwifi-webinitrd.conf
+sed -i 's@\w\miwifi.com@mirouter.com@g' $FSDIR/etc/nginx/nginx.conf
 
 
 # apply patch from xqrepack repository
