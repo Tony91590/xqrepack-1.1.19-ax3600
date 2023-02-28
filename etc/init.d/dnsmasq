@@ -1138,8 +1138,8 @@ dnsmasq_start() {
 
 	#setup router domain
 	mkdir -p /tmp/hosts/ && {
-		echo "${lanipaddr} mirouter.com" >/tmp/hosts/xqrepack.com
-		echo "${lanipaddr} www.mirouter.com" >/tmp/hosts/www.xqrepack.com
+		echo "${lanipaddr} xqrepack.com" >/tmp/hosts/xqrepack.com
+		echo "${lanipaddr} www.xqrepack.com" >/tmp/hosts/www.xqrepack.com
 	}
 
 	#custom hosts
