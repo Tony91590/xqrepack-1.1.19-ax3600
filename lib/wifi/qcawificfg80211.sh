@@ -3890,21 +3890,6 @@ EOF
 	fi
 	devidx=$(($devidx + 1))
 	done
-cat <<EOF
-config wifi-iface 'miot_2G'
-	option ifname 'wl13'
-	option network 'miot'
-	option encryption 'none'
-	option device 'wifi$devidx24g'
-	option mode 'ap'
-	option hidden '1'
-	option maxsta '20'
-	option ssid '25c829b1922d3123_miwifi'
-	option bsd '0'
-	option disabled '${wifi_disable}'
-	option ap_isolate '1'
-	option userswitch '1'
-EOF
 
 	if [ $reload == 1 ] ; then
 		if [ $avoid_load == 1 ]; then
