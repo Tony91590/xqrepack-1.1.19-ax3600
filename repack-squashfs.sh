@@ -115,6 +115,7 @@ done
 
 # as a last-ditch effort, change the *.miwifi.com hostnames to localhost
 sed -i 's@\w\+.miwifi.com@localhost@g' $FSDIR/etc/config/miwifi
+sed -i 's@\w\miwifi.com@mirouter.com@g' $FSDIR/etc/nginx/miwifi-webinitrd-https.conf
 
 # apply patch from xqrepack repository
 find patches -type f -exec bash -c "(cd "$FSDIR" && patch -p1) < {}" \;
