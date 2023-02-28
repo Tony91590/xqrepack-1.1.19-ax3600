@@ -37,7 +37,7 @@ chmod 755 $FSDIR/usr/lib/opkg/info/luci-i18n-*.prerm
 chmod 755 $FSDIR/etc/uci-defaults/luci-i18n-*
 
 # copy the latest firmware of wifi
-# cp -R lib/* "$FSDIR/lib/"
+cp -R lib/* "$FSDIR/lib/"
 
 # replace luci from international firmware
 cp -R lua/* "$FSDIR/usr/lib/lua/"
