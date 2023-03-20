@@ -3709,12 +3709,12 @@ detect_qcawificfg80211() {
 	radioidx=$devidx
 	ssid=`nvram get wl${radioidx}_ssid`
 	if [ $devidx = 0 ]; then
-		htmode=HT160
+		htmode=HT80
 		mode=ap
 		network=lan
 		disable=0
 	elif [ $devidx = 1 ]; then
-		htmode=HT20
+		htmode=HT40
 		mode=ap
 		network=lan
 		disable=0
@@ -3764,16 +3764,6 @@ EOF
 	option bw 20
 EOF
 	fi
-	if [ $devidx = 1 ]; then
-		cat <<EOF
-	option bw 20
-EOF
-	fi
-	if [ $devidx = 0 ]; then
-		cat <<EOF
-	option bw 160
-EOF
-	fi
 	cat <<EOF
 
 config wifi-iface
@@ -3788,7 +3778,7 @@ config wifi-iface
 EOF
 	if [ $devidx = 0 ]; then
 		cat <<EOF
-	option channel_block_list '52,56,60,64,100,104,108,112,116,120,124,128,132,136,140,144,165'
+	option channel_block_list '36,40,44,48,52,56,60,64'
 EOF
 	fi
 	devidx=$(($devidx + 1))
@@ -3836,4 +3826,3 @@ son_get_config_qcawificfg80211()
 	done
 	fi
 }
-	
