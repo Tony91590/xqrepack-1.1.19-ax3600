@@ -3764,6 +3764,11 @@ EOF
 	option bw 20
 EOF
 	fi
+    if [ $devidx = 0 ]; then
+        cat <<EOF
+    option bw 160
+EOF
+    fi
 	cat <<EOF
 
 config wifi-iface
