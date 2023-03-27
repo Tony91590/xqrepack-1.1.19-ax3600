@@ -2933,14 +2933,14 @@ enable_qcawificfg80211() {
 
 		# for miwifi
 		if [ "$bdmode" = "24G" ]; then
-			max_power=30
+			max_power=14
 			wifitool "$ifname" setUnitTestCmd 67 2 16 0x34
 			wifitool "$ifname" setUnitTestCmd 67 3 16 1 1
 			wifitool "$ifname" setUnitTestCmd 67 4 16 1 -5 35
 			wifitool "$ifname" setUnitTestCmd 67 5 12 1 -5 35 10
 			iwpriv "$ifname" 11ngvhtintop 1
 		else
-			max_power=30
+			max_power=23
 		fi
 
 		config_get txpwr "$device" txpwr
@@ -3754,7 +3754,7 @@ config wifi-device  wifi$devidx
 	option macaddr	$(cat /sys/class/net/${dev}/address)
 	option hwmode	11${mode_11}
 	option htmode	'${htmode}'
-	option country	'$country_code'
+	option country	'FR'
 	option disabled '$disable'
 	option txbf '3'
 	option ax '1'
