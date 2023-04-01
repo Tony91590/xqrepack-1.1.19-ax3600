@@ -38,7 +38,7 @@ sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/foote
 
 # copy the latest firmware of wifi
 cp -R lib/* "$FSDIR/lib/"
-cp -R usr/* "$FSDIR/usr/"
+#cp -R usr/* "$FSDIR/usr/"
 
 # apply patch from xqrepack repository
 find patches -type f -exec bash -c "(cd "$FSDIR" && patch -p1) < {}" \;
