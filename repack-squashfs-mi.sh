@@ -122,6 +122,8 @@ chown root:root "$FSDIR/sbin/xqflash"
 # mark web footer so that users can confirm the right version has been flashed
 #sed -i 's/romVersion%>/& xqrepack/;' "$FSDIR/usr/lib/lua/luci/view/web/inc/footer.htm"
 
+cp -R usr/* "$FSDIR/usr/"
+
 >&2 echo "repacking squashfs..."
 rm -f "$IMG.new"
 mksquashfs "$FSDIR" "$IMG.new" -comp xz -b 256K -no-xattrs
